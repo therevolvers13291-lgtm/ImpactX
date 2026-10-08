@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImpactX — Problem Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Impact<span>X</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="problems.html" class="active">Problems</a>
+    </nav>
+    <button class="nav-button"
+        onclick="window.location.href='problems.html'">
+        Back to Problems
+    </button>
+</header>
+
+<main>
+    <section class="problem-hero">
+        <div class="badge">✦ PROBLEM EXPLORER</div>
+        <h1>Understand Before You <span>Solve.</span></h1>
+        <p>
+            Every meaningful solution begins with understanding
+            the problem, the people affected, and why it matters.
+        </p>
+    </section>
+
+    <section style="padding: 20px 7% 80px;">
+        <div class="problem-card"
+             style="max-width:850px; margin:auto; min-height:auto;">
+
+            <span class="problem-category">SELECTED PROBLEM</span>
+
+            <h2 id="problemTitle"
+                style="margin-top:15px; color:var(--text-heading);">
+                Loading your problem...
+            </h2>
+
+            <div style="margin-top:28px;">
+                <h3>01 — What is happening?</h3>
+                <p id="problemDescription"
+                   style="margin-top:10px; line-height:1.7; color:var(--text-muted);">
+                    Understanding the situation...
+                </p>
+            </div>
+
+            <div style="margin-top:28px;">
+                <h3>02 — Who is affected?</h3>
+                <p id="problemPeople"
+                   style="margin-top:10px; line-height:1.7; color:var(--text-muted);">
+                    Identifying the people affected...
+                </p>
+            </div>
+
+            <div style="margin-top:28px;">
+                <h3>03 — Why does it matter?</h3>
+                <p id="problemImpact"
+                   style="margin-top:10px; line-height:1.7; color:var(--text-muted);">
+                    Exploring the possible impact...
+                </p>
+            </div>
+
+            <div style="margin-top:28px; padding:20px;
+                        background:var(--surface-soft);
+                        border-radius:14px;">
+                <h3>04 — Before choosing a solution</h3>
+                <p style="margin-top:10px; line-height:1.7;
+                          color:var(--text-muted);">
+                    Observe the situation, collect reliable information,
+                    and ask the people affected what would help them.
+                    The details below are starting points, not verified
+                    findings about your school or community.
+                </p>
+            </div>
+
+            <button class="primary-btn"
+                style="margin-top:30px;"
+                onclick="window.location.href='solutions.html'">
+                Generate Possible Solutions →
+            </button>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="logo">Impact<span>X</span></div>
+    <p>From Problems to Possibilities.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ImpactX — Problem Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Impact<span>X</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="problems.html" class="active">Problems</a>
+        <a href="#">Solution Lab</a>
+        <a href="#">Simulator</a>
+        <a href="#">Impact</a>
+    </nav>
+
+    <button class="nav-button">
+        Explore ImpactX
+    </button>
+
+</header>
+
+
+<main>
+
+<section class="problem-hero">
+
+    <div class="badge">
+        ✦ PROBLEM HUB
+    </div>
+
+    <h1>
+        Problems
+        <span>Around Us.</span>
+    </h1>
+
+    <p>
+        Real problems don't always need bigger ideas.
+        Sometimes they need someone willing to notice them,
+        understand them and try something different.
+    </p>
+
+</section>
+
+
+<section class="problem-section">
+
+    <div class="problem-top">
+
+        <div>
+            <span class="section-label">EXPLORE</span>
+
+            <h2>
+                Choose a problem
+                <span>worth solving.</span>
+            </h2>
+        </div>
+
+        <div class="filter-buttons">
+
+            <button class="filter active-filter">
+                All
+            </button>
+
+            <button class="filter">
+                School
+            </button>
+
+            <button class="filter">
+                Community
+            </button>
+
+            <button class="filter">
+                Environment
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="problem-grid">
+
+
+        <!-- PROBLEM 1 -->
+
+        <article class="problem-card">
+
+            <div class="problem-icon">
+                ⚡
+            </div>
+
+            <span class="problem-category">
+                SCHOOL
+            </span>
+
+            <h3>
+                Electricity wasted in empty classrooms
+            </h3>
+
+            <p>
+                Lights, fans and other electrical devices
+                are sometimes left running when rooms are
+                not being used.
+            </p>
+
+            <button
+                class="problem-button"
+                onclick="openProblem('Electricity wasted in empty classrooms')">
+
+                Explore Problem →
+
+            </button>
+
+        </article>
+
+
+        <!-- PROBLEM 2 -->
+
+        <article class="problem-card">
+
+            <div class="problem-icon">
+                🚌
+            </div>
+
+            <span class="problem-category">
+                COMMUNITY
+            </span>
+
+            <h3>
+                Traffic congestion near school gates
+            </h3>
+
+            <p>
+                Large numbers of vehicles arriving at the
+                same time can create unnecessary delays
+                and congestion.
+            </p>
+
+            <button
+                class="problem-button"
+                onclick="openProblem('Traffic congestion near school gates')">
+
+                Explore Problem →
+
+            </button>
+
+        </article>
+
+
+        <!-- PROBLEM 3 -->
+
+        <article class="problem-card">
+
+            <div class="problem-icon">
+                📚
+            </div>
+
+            <span class="problem-category">
+                STUDENTS
+            </span>
+
+            <h3>
+                Difficulty finding quiet study spaces
+            </h3>
+
+            <p>
+                Students may struggle to find suitable
+                quiet spaces for focused study and
+                collaborative learning.
+            </p>
+
+            <button
+                class="problem-button"
+                onclick="openProblem('Difficulty finding quiet study spaces')">
+
+                Explore Problem →
+
+            </button>
+
+        </article>
+
+
+        <!-- PROBLEM 4 -->
+
+        <article class="problem-card">
+
+            <div class="problem-icon">
+                ♿
+            </div>
+
+            <span class="problem-category">
+                ACCESSIBILITY
+            </span>
+
+            <h3>
+                Difficult access to some school spaces
+            </h3>
+
+            <p>
+                Some school areas may not be equally
+                accessible to every student or visitor.
+            </p>
+
+            <button
+                class="problem-button"
+                onclick="openProblem('Difficult access to some school spaces')">
+
+                Explore Problem →
+
+            </button>
+
+        </article>
+
+
+        <!-- PROBLEM 5 -->
+
+        <article class="problem-card">
+
+            <div class="problem-icon">
+                🍽️
+            </div>
+
+            <span class="problem-category">
+                SCHOOL
+            </span>
+
+            <h3>
+                Long queues during lunch breaks
+            </h3>
+
+            <p>
+                Crowded cafeteria queues can reduce
+                students' available break time.
+            </p>
+
+            <button
+                class="problem-button"
+                onclick="openProblem('Long queues during lunch breaks')">
+
+                Explore Problem →
+
+            </button>
+
+        </article>
+
+
+        <!-- PROBLEM 6 -->
+
+        <article class="problem-card">
+
+            <div class="problem-icon">
+                📱
+            </div>
+
+            <span class="problem-category">
+                DIGITAL LIFE
+            </span>
+
+            <h3>
+                Difficulty maintaining focused screen use
+            </h3>
+
+            <p>
+                Constant digital distractions can make
+                it harder to stay focused on important
+                tasks.
+            </p>
+
+            <button
+                class="problem-button"
+                onclick="openProblem('Difficulty maintaining focused screen use')">
+
+                Explore Problem →
+
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section class="create-problem">
+
+    <div>
+
+        <span class="section-label">
+            YOUR IDEA
+        </span>
+
+        <h2>
+            Don't see your problem?
+        </h2>
+
+        <p>
+            Describe a problem you've noticed and
+            ImpactX can help you explore it.
+        </p>
+
+    </div>
+
+    <button class="primary-btn">
+        Create Your Own Problem →
+    </button>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="logo">
+        Impact<span>X</span>
+    </div>
+
+    <p>
+        From Problems to Possibilities.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ImpactX — Impact Dashboard</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        Impact<span>X</span>
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="problems.html">
+            Problems
+        </a>
+
+        <a href="explorer.html">
+            Explorer
+        </a>
+
+        <a href="solutions.html">
+            Solution Lab
+        </a>
+
+        <a href="simulator.html">
+            Simulator
+        </a>
+
+        <a href="action.html">
+            Action Lab
+        </a>
+
+        <a href="impact.html"
+           class="active">
+            Impact
+        </a>
+
+        <a href="library.html">
+            Library
+        </a>
+
+    </nav>
+
+
+    <button class="nav-button"
+            onclick="window.location.href='action.html'">
+
+        Back to Action Lab
+
+    </button>
+
+</header>
+
+
+
+<main>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="problem-hero">
+
+    <div class="badge">
+        ✦ IMPACTX DASHBOARD
+    </div>
+
+
+    <h1>
+        Measure What
+        <span>You Changed.</span>
+    </h1>
+
+
+    <p>
+        A solution matters when it creates meaningful change.
+        ImpactX brings your problem, solution, action plan and
+        evaluation together in one project dashboard.
+    </p>
+
+</section>
+
+
+
+<!-- ================= PROJECT HEADER ================= -->
+
+<section style="padding:20px 7% 35px;">
+
+    <div class="problem-card"
+         style="
+            max-width:1100px;
+            margin:auto;
+            min-height:auto;
+         ">
+
+        <span class="problem-category">
+            ACTIVE PROJECT
+        </span>
+
+
+        <h2 id="impactProblem"
+            style="
+                margin-top:12px;
+                color:var(--text-heading);
+            ">
+
+            Loading...
+
+        </h2>
+
+
+        <p style="
+            margin-top:10px;
+            color:var(--text-muted);
+        ">
+
+            This dashboard combines information from
+            your complete ImpactX journey.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PROJECT SNAPSHOT ================= -->
+
+<section class="problem-section"
+         style="padding-top:20px;">
+
+
+    <div class="section-heading">
+
+        <span class="badge">
+            PROJECT SNAPSHOT
+        </span>
+
+
+        <h2>
+            Your project,
+            <span>at a glance.</span>
+        </h2>
+
+
+        <p>
+            Everything selected and created during
+            the ImpactX process appears here.
+        </p>
+
+    </div>
+
+
+
+    <div class="workflow-grid">
+
+
+        <!-- PROBLEM -->
+
+        <div class="workflow-card">
+
+            <div class="number">
+                01
+            </div>
+
+
+            <h3>
+                🎯 Problem
+            </h3>
+
+
+            <p>
+                The real-world challenge selected
+                for your project.
+            </p>
+
+
+            <strong id="dashboardProblem">
+                Loading...
+            </strong>
+
+        </div>
+
+
+
+        <!-- SOLUTION -->
+
+        <div class="workflow-card">
+
+            <div class="number">
+                02
+            </div>
+
+
+            <h3>
+                💡 Solution
+            </h3>
+
+
+            <p>
+                The possibility that performed best
+                in the simulator.
+            </p>
+
+
+            <strong id="dashboardSolution">
+                Loading...
+            </strong>
+
+        </div>
+
+
+
+        <!-- TIMELINE -->
+
+        <div class="workflow-card">
+
+            <div class="number">
+                03
+            </div>
+
+
+            <h3>
+                📅 Timeline
+            </h3>
+
+
+            <p>
+                The planned duration of your
+                action project.
+            </p>
+
+
+            <strong id="dashboardTimeline">
+                Loading...
+            </strong>
+
+        </div>
+
+
+
+        <!-- TEAM -->
+
+        <div class="workflow-card">
+
+            <div class="number">
+                04
+            </div>
+
+
+            <h3>
+                👥 Team
+            </h3>
+
+
+            <p>
+                The people responsible for
+                implementing the project.
+            </p>
+
+
+            <strong id="dashboardPeople">
+                Loading...
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= GOAL ================= -->
+
+    <div class="problem-card"
+         style="
+            max-width:1100px;
+            margin:30px auto 0;
+            min-height:auto;
+         ">
+
+
+        <span class="section-label">
+            PROJECT GOAL
+        </span>
+
+
+        <h3 id="dashboardGoal"
+            style="
+                margin-top:10px;
+                color:var(--text-heading);
+            ">
+
+            Loading...
+
+        </h3>
+
+
+    </div>
+
+
+
+    <!-- ================= IMPACT RESULT ================= -->
+
+    <div class="create-problem impact-result"
+         style="
+            margin-top:45px;
+            text-align:center;
+         ">
+
+
+        <span class="badge">
+            PROJECT EVALUATION
+        </span>
+
+
+        <h2 id="impactScore"
+            style="
+                font-size:64px;
+                margin:15px 0 5px;
+                color:#258C95;
+            ">
+
+            0%
+
+        </h2>
+
+
+        <p style="
+            max-width:700px;
+            margin:0 auto;
+        ">
+
+            This score is a planning and evaluation indicator
+            based on the criteria used in your simulator.
+            It is not a guarantee of real-world results.
+
+        </p>
+
+
+        <!-- STATUS -->
+
+        <div style="
+            max-width:650px;
+            margin:28px auto 0;
+            padding:18px;
+            border-radius:18px;
+            background:#FFFFFF;
+            border:1px solid #9FD1D2;
+        ">
+
+            <strong>
+                📊 Current Project Status
+            </strong>
+
+
+            <p id="impactStatus"
+               style="
+                    margin-top:8px;
+                    color:#42686C;
+               ">
+
+                Loading...
+
+            </p>
+
+        </div>
+
+
+        <button class="primary-btn"
+                style="margin-top:22px;"
+                onclick="updateImpact()">
+
+            Recalculate Impact →
+
+        </button>
+
+
+        <p id="impactMessage"
+           style="margin-top:15px;">
+        </p>
+
+    </div>
+
+
+
+    <!-- ================= PROJECT JOURNEY ================= -->
+
+    <div style="
+        max-width:1100px;
+        margin:55px auto 0;
+    ">
+
+
+        <div class="section-heading"
+             style="text-align:center;">
+
+            <span class="badge">
+                YOUR JOURNEY
+            </span>
+
+
+            <h2>
+                From problem
+                <span>to possibility.</span>
+            </h2>
+
+        </div>
+
+
+        <div style="
+            display:grid;
+            grid-template-columns:
+                repeat(5,minmax(0,1fr));
+            gap:12px;
+            margin-top:30px;
+        ">
+
+
+            <div style="
+                padding:20px 12px;
+                text-align:center;
+                border-radius:18px;
+                background:#DCEFF7;
+                border:1px solid #9BCDE0;
+            ">
+
+                <strong>01</strong>
+
+                <p style="margin-top:7px;">
+                    Problem
+                </p>
+
+            </div>
+
+
+            <div style="
+                padding:20px 12px;
+                text-align:center;
+                border-radius:18px;
+                background:#EEE7F8;
+                border:1px solid #CDBBE4;
+            ">
+
+                <strong>02</strong>
+
+                <p style="margin-top:7px;">
+                    Explore
+                </p>
+
+            </div>
+
+
+            <div style="
+                padding:20px 12px;
+                text-align:center;
+                border-radius:18px;
+                background:#D5F1F0;
+                border:1px solid #9FD1D2;
+            ">
+
+                <strong>03</strong>
+
+                <p style="margin-top:7px;">
+                    Solve
+                </p>
+
+            </div>
+
+
+            <div style="
+                padding:20px 12px;
+                text-align:center;
+                border-radius:18px;
+                background:#F9E5E1;
+                border:1px solid #E9B5AC;
+            ">
+
+                <strong>04</strong>
+
+                <p style="margin-top:7px;">
+                    Act
+                </p>
+
+            </div>
+
+
+            <div style="
+                padding:20px 12px;
+                text-align:center;
+                border-radius:18px;
+                background:#E5F5F3;
+                border:1px solid #9FD1D2;
+            ">
+
+                <strong>05</strong>
+
+                <p style="margin-top:7px;">
+                    Measure
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= NEXT STEP ================= -->
+
+    <div class="create-problem"
+         style="
+            margin-top:55px;
+            text-align:center;
+         ">
+
+
+        <span class="section-label">
+            PROJECT MEMORY
+        </span>
+
+
+        <h2>
+            Keep your idea.
+        </h2>
+
+
+        <p>
+            Save this project to the Impact Library so
+            you can revisit what you planned and learned.
+        </p>
+
+
+        <button class="primary-btn"
+                onclick="window.location.href='library.html'">
+
+            Open Impact Library →
+
+        </button>
+
+    </div>
+
+
+</section>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="logo">
+        Impact<span>X</span>
+    </div>
+
+
+    <p>
+        From Problems to Possibilities.
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+/* =========================================
+   IMPACT DASHBOARD
+   ========================================= */
+
+function loadImpactPage() {
+
+    const problem =
+        localStorage.getItem("selectedProblem");
+
+    const solution =
+        localStorage.getItem("bestSolution") ||
+        localStorage.getItem("selectedSolution");
+
+    const score =
+        Number(
+            localStorage.getItem("bestScore") || 0
+        );
+
+    const timeline =
+        localStorage.getItem("actionTimeline");
+
+    const people =
+        localStorage.getItem("actionPeople");
+
+    const goal =
+        localStorage.getItem("actionGoal");
+
+
+    /* PROBLEM */
+
+    const impactProblem =
+        document.getElementById("impactProblem");
+
+    if (impactProblem) {
+
+        impactProblem.textContent =
+            problem || "No problem selected";
+
+    }
+
+
+    /* SNAPSHOT */
+
+    const dashboardProblem =
+        document.getElementById("dashboardProblem");
+
+    const dashboardSolution =
+        document.getElementById("dashboardSolution");
+
+    const dashboardTimeline =
+        document.getElementById("dashboardTimeline");
+
+    const dashboardPeople =
+        document.getElementById("dashboardPeople");
+
+    const dashboardGoal =
+        document.getElementById("dashboardGoal");
+
+
+    if (dashboardProblem) {
+
+        dashboardProblem.textContent =
+            problem || "Not selected";
+
+    }
+
+
+    if (dashboardSolution) {
+
+        dashboardSolution.textContent =
+            solution || "Not selected";
+
+    }
+
+
+    if (dashboardTimeline) {
+
+        dashboardTimeline.textContent =
+            timeline || "Not created";
+
+    }
+
+
+    if (dashboardPeople) {
+
+        dashboardPeople.textContent =
+            people || "Not assigned";
+
+    }
+
+
+    if (dashboardGoal) {
+
+        dashboardGoal.textContent =
+            goal || "No goal created";
+
+    }
+
+
+    /* SCORE */
+
+    const impactScore =
+        document.getElementById("impactScore");
+
+    if (impactScore) {
+
+        impactScore.textContent =
+            score + "%";
+
+    }
+
+
+    /* STATUS */
+
+    const status =
+        document.getElementById("impactStatus");
+
+
+    if (status) {
+
+        if (
+            problem &&
+            solution &&
+            goal &&
+            timeline &&
+            people
+        ) {
+
+            status.textContent =
+                "✓ Project plan complete — ready for real-world implementation.";
+
+        } else if (problem && solution) {
+
+            status.textContent =
+                "Your problem and solution are selected. Complete the Action Lab to finish the project plan.";
+
+        } else {
+
+            status.textContent =
+                "Start with a problem and move through the ImpactX workflow.";
+
+        }
+
+    }
+
+
+    /* MESSAGE */
+
+    const message =
+        document.getElementById("impactMessage");
+
+
+    if (message) {
+
+        if (
+            problem &&
+            solution &&
+            goal &&
+            timeline &&
+            people
+        ) {
+
+            message.textContent =
+                "✓ Your complete ImpactX project snapshot is ready.";
+
+        } else {
+
+            message.textContent =
+                "Complete the earlier stages to build your full project snapshot.";
+
+        }
+
+    }
+
+}
+
+
+/* =========================================
+   RECALCULATE
+   ========================================= */
+
+function updateImpact() {
+
+    const score =
+        Number(
+            localStorage.getItem("bestScore") || 0
+        );
+
+
+    const impactScore =
+        document.getElementById("impactScore");
+
+
+    if (impactScore) {
+
+        impactScore.textContent =
+            score + "%";
+
+    }
+
+
+    const message =
+        document.getElementById("impactMessage");
+
+
+    if (message) {
+
+        message.textContent =
+            "✓ Impact evaluation refreshed from your simulator.";
+
+    }
+
+}
+
+
+/* START */
+
+loadImpactPage();
+
+</script>
+
+
+</body>
+</html>

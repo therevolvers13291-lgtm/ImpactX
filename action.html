@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ImpactX — Action Lab</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        Impact<span>X</span>
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="problems.html">
+            Problems
+        </a>
+
+        <a href="explorer.html">
+            Explorer
+        </a>
+
+        <a href="solutions.html">
+            Solution Lab
+        </a>
+
+        <a href="simulator.html">
+            Simulator
+        </a>
+
+        <a href="action.html"
+           class="active">
+            Action Lab
+        </a>
+
+        <a href="impact.html">
+            Impact
+        </a>
+
+        <a href="library.html">
+            Library
+        </a>
+
+    </nav>
+
+    <button class="nav-button"
+            onclick="window.location.href='simulator.html'">
+
+        Back to Simulator
+
+    </button>
+
+</header>
+
+
+<main>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="problem-hero">
+
+    <div class="badge">
+        ✦ IMPACTX ACTION LAB
+    </div>
+
+    <h1>
+        Turn Your
+        <span>Idea Into Action.</span>
+    </h1>
+
+    <p>
+        Turn the solution you selected into a practical
+        project plan that your team can actually follow.
+    </p>
+
+</section>
+
+
+<!-- ================= PROJECT SNAPSHOT ================= -->
+
+<section style="padding:20px 7% 35px;">
+
+    <div class="problem-card"
+         style="
+            max-width:1100px;
+            margin:auto;
+            min-height:auto;
+         ">
+
+        <span class="problem-category">
+            YOUR PROJECT SNAPSHOT
+        </span>
+
+        <h2 id="actionProblem"
+            style="
+                margin-top:12px;
+                color:var(--text-heading);
+            ">
+
+            Loading...
+
+        </h2>
+
+
+        <div style="
+            display:grid;
+            grid-template-columns:
+                repeat(2,minmax(0,1fr));
+            gap:18px;
+            margin-top:25px;
+        ">
+
+
+            <!-- SOLUTION -->
+
+            <div style="
+                padding:22px;
+                border-radius:18px;
+                background:#EEE7F8;
+                border:1px solid #CDBBE4;
+            ">
+
+                <span class="section-label">
+                    SELECTED SOLUTION
+                </span>
+
+                <h3 id="actionSolution"
+                    style="margin-top:8px;">
+
+                    Loading...
+
+                </h3>
+
+            </div>
+
+
+            <!-- SCORE -->
+
+            <div style="
+                padding:22px;
+                border-radius:18px;
+                background:#DCEFF7;
+                border:1px solid #9BCDE0;
+            ">
+
+                <span class="section-label">
+                    SIMULATOR SCORE
+                </span>
+
+                <h3 id="actionScore"
+                    style="
+                        margin-top:8px;
+                        color:#258C95;
+                    ">
+
+                    -- / 100
+
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ACTION PLAN ================= -->
+
+<section class="problem-section">
+
+    <div class="section-heading">
+
+        <span class="badge">
+            BUILD YOUR PLAN
+        </span>
+
+        <h2>
+            Four steps from
+            <span>idea to action.</span>
+        </h2>
+
+        <p>
+            Complete each section and ImpactX will create
+            your project plan automatically.
+        </p>
+
+    </div>
+
+
+    <div class="workflow-grid">
+
+
+        <!-- ================= GOAL ================= -->
+
+        <div class="workflow-card">
+
+            <div class="number">
+                01
+            </div>
+
+            <h3>
+                🎯 Define Your Goal
+            </h3>
+
+            <p>
+                What exactly do you want your project
+                to achieve?
+            </p>
+
+            <input
+                type="text"
+                id="goalInput"
+                placeholder="Example: Reduce electricity wastage"
+            >
+
+        </div>
+
+
+        <!-- ================= STEPS ================= -->
+
+        <div class="workflow-card">
+
+            <div class="number">
+                02
+            </div>
+
+            <h3>
+                ⚙️ Plan the Steps
+            </h3>
+
+            <p>
+                Write the main actions your team will take.
+            </p>
+
+            <textarea
+                id="stepsInput"
+                rows="5"
+                placeholder="Example: Monitor classrooms, create reminders, track usage..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- ================= PEOPLE ================= -->
+
+        <div class="workflow-card">
+
+            <div class="number">
+                03
+            </div>
+
+            <h3>
+                👥 Assign Responsibility
+            </h3>
+
+            <p>
+                Who will help make this project happen?
+            </p>
+
+            <input
+                type="text"
+                id="peopleInput"
+                placeholder="Example: Student team + teachers"
+            >
+
+        </div>
+
+
+        <!-- ================= TIMELINE ================= -->
+
+        <div class="workflow-card">
+
+            <div class="number">
+                04
+            </div>
+
+            <h3>
+                📅 Set a Timeline
+            </h3>
+
+            <p>
+                Choose how long your project will run.
+            </p>
+
+            <select id="timelineInput">
+
+                <option value="">
+                    Select timeline
+                </option>
+
+                <option value="1 Week">
+                    1 Week
+                </option>
+
+                <option value="2 Weeks">
+                    2 Weeks
+                </option>
+
+                <option value="1 Month">
+                    1 Month
+                </option>
+
+                <option value="3 Months">
+                    3 Months
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= CREATE ================= -->
+
+    <div class="create-problem"
+         style="
+            margin-top:50px;
+            text-align:center;
+         ">
+
+        <span class="badge">
+            READY?
+        </span>
+
+        <h2>
+            Launch Your Impact Project
+        </h2>
+
+        <p>
+            Turn your selected possibility into a
+            structured action plan.
+        </p>
+
+        <button
+            class="primary-btn"
+            type="button"
+            onclick="createProjectPlan()">
+
+            🚀 Create Project Plan
+
+        </button>
+
+        <p id="projectMessage"></p>
+
+    </div>
+
+
+    <!-- ================= GENERATED PLAN ================= -->
+
+    <div id="projectPlan"
+         style="
+            display:none;
+            margin-top:50px;
+            padding:45px;
+            background:#FFFFFF;
+            border:2px solid #9FD1D2;
+            border-radius:28px;
+            box-shadow:
+                0 15px 40px
+                rgba(37,100,105,0.14);
+         ">
+
+
+        <span class="badge">
+            PROJECT CREATED
+        </span>
+
+
+        <h2 style="margin-top:18px;">
+            🚀 Your ImpactX Project Plan
+        </h2>
+
+
+        <p id="planIntro"
+           style="margin-top:10px;">
+        </p>
+
+
+        <!-- PLAN GRID -->
+
+        <div style="
+            display:grid;
+            grid-template-columns:
+                repeat(2,minmax(0,1fr));
+            gap:20px;
+            margin-top:30px;
+        ">
+
+
+            <!-- GOAL -->
+
+            <div style="
+                padding:25px;
+                border-radius:18px;
+                background:#DCEFF7;
+            ">
+
+                <strong>
+                    🎯 Goal
+                </strong>
+
+                <p id="planGoal"></p>
+
+            </div>
+
+
+            <!-- STEPS -->
+
+            <div style="
+                padding:25px;
+                border-radius:18px;
+                background:#EEE7F8;
+            ">
+
+                <strong>
+                    ⚙️ Action Steps
+                </strong>
+
+                <p id="planSteps"></p>
+
+            </div>
+
+
+            <!-- PEOPLE -->
+
+            <div style="
+                padding:25px;
+                border-radius:18px;
+                background:#D5F1F0;
+            ">
+
+                <strong>
+                    👥 Responsibility
+                </strong>
+
+                <p id="planPeople"></p>
+
+            </div>
+
+
+            <!-- TIMELINE -->
+
+            <div style="
+                padding:25px;
+                border-radius:18px;
+                background:#F9E5E1;
+            ">
+
+                <strong>
+                    📅 Timeline
+                </strong>
+
+                <p id="planTimeline"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SELECTED SOLUTION -->
+
+        <div style="
+            margin-top:20px;
+            padding:25px;
+            border-radius:18px;
+            background:#E5F5F3;
+        ">
+
+            <strong>
+                🏆 Selected Solution
+            </strong>
+
+            <p id="planSolution"></p>
+
+        </div>
+
+
+        <!-- SCORE -->
+
+        <div style="
+            margin-top:20px;
+            padding:25px;
+            border-radius:18px;
+            background:#F0EAF8;
+        ">
+
+            <strong>
+                📊 Simulator Evaluation
+            </strong>
+
+            <p id="planScore"></p>
+
+        </div>
+
+
+        <!-- NEXT STEP -->
+
+        <div style="
+            margin-top:30px;
+            padding:22px;
+            border-radius:18px;
+            background:#F0EAF8;
+        ">
+
+            <strong>
+                💡 ImpactX Next Step
+            </strong>
+
+            <p>
+                Put your plan into action, observe what
+                changes, and record the result in the
+                Impact Dashboard.
+            </p>
+
+        </div>
+
+
+        <div style="margin-top:30px;">
+
+            <a
+                href="impact.html"
+                class="primary-btn"
+                style="
+                    display:inline-block;
+                    text-decoration:none;
+                "
+            >
+
+                View Impact Dashboard →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="logo">
+        Impact<span>X</span>
+    </div>
+
+    <p>
+        From Problems to Possibilities.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+function loadActionSnapshot() {
+
+    const problem =
+        localStorage.getItem("selectedProblem");
+
+    const solution =
+        localStorage.getItem("bestSolution") ||
+        localStorage.getItem("selectedSolution");
+
+    const score =
+        localStorage.getItem("bestScore");
+
+
+    const problemElement =
+        document.getElementById("actionProblem");
+
+    const solutionElement =
+        document.getElementById("actionSolution");
+
+    const scoreElement =
+        document.getElementById("actionScore");
+
+
+    if (problemElement) {
+
+        problemElement.textContent =
+            problem || "No problem selected";
+
+    }
+
+
+    if (solutionElement) {
+
+        solutionElement.textContent =
+            solution || "No solution selected";
+
+    }
+
+
+    if (scoreElement) {
+
+        scoreElement.textContent =
+            score
+                ? score + " / 100"
+                : "-- / 100";
+
+    }
+
+
+    /* RESTORE PREVIOUS INPUTS */
+
+    const savedGoal =
+        localStorage.getItem("actionGoal");
+
+    const savedSteps =
+        localStorage.getItem("actionSteps");
+
+    const savedPeople =
+        localStorage.getItem("actionPeople");
+
+    const savedTimeline =
+        localStorage.getItem("actionTimeline");
+
+
+    if (savedGoal) {
+
+        document.getElementById("goalInput").value =
+            savedGoal;
+
+    }
+
+
+    if (savedSteps) {
+
+        document.getElementById("stepsInput").value =
+            savedSteps;
+
+    }
+
+
+    if (savedPeople) {
+
+        document.getElementById("peopleInput").value =
+            savedPeople;
+
+    }
+
+
+    if (savedTimeline) {
+
+        document.getElementById("timelineInput").value =
+            savedTimeline;
+
+    }
+
+}
+
+
+/* ================= CREATE PROJECT ================= */
+
+function createProjectPlan() {
+
+    const goal =
+        document.getElementById("goalInput")
+        .value.trim();
+
+    const steps =
+        document.getElementById("stepsInput")
+        .value.trim();
+
+    const people =
+        document.getElementById("peopleInput")
+        .value.trim();
+
+    const timeline =
+        document.getElementById("timelineInput")
+        .value;
+
+
+    const problem =
+        localStorage.getItem("selectedProblem") ||
+        "Your selected problem";
+
+    const solution =
+        localStorage.getItem("bestSolution") ||
+        localStorage.getItem("selectedSolution") ||
+        "Selected solution";
+
+    const score =
+        localStorage.getItem("bestScore") ||
+        "0";
+
+
+    /* VALIDATION */
+
+    if (!goal || !steps || !people || !timeline) {
+
+        const message =
+            document.getElementById("projectMessage");
+
+        message.textContent =
+            "⚠️ Please complete all four sections first.";
+
+        message.style.color =
+            "#EA8F83";
+
+        return;
+
+    }
+
+
+    /* SAVE */
+
+    localStorage.setItem(
+        "actionGoal",
+        goal
+    );
+
+    localStorage.setItem(
+        "actionSteps",
+        steps
+    );
+
+    localStorage.setItem(
+        "actionPeople",
+        people
+    );
+
+    localStorage.setItem(
+        "actionTimeline",
+        timeline
+    );
+
+    localStorage.setItem(
+        "projectCreated",
+        "true"
+    );
+
+
+    /* MESSAGE */
+
+    const message =
+        document.getElementById("projectMessage");
+
+    message.textContent =
+        "✓ Your ImpactX project plan has been created!";
+
+    message.style.color =
+        "#258C95";
+
+
+    /* PLAN CONTENT */
+
+    document.getElementById("planIntro")
+        .textContent =
+        "Your project is focused on: " + problem;
+
+
+    document.getElementById("planGoal")
+        .textContent =
+        goal;
+
+
+    document.getElementById("planSteps")
+        .textContent =
+        steps;
+
+
+    document.getElementById("planPeople")
+        .textContent =
+        people;
+
+
+    document.getElementById("planTimeline")
+        .textContent =
+        timeline;
+
+
+    document.getElementById("planSolution")
+        .textContent =
+        solution;
+
+
+    document.getElementById("planScore")
+        .textContent =
+        score + " / 100";
+
+
+    /* SHOW PLAN */
+
+    const plan =
+        document.getElementById("projectPlan");
+
+    plan.style.display =
+        "block";
+
+
+    /* SAVE PROJECT TIMESTAMP */
+
+    localStorage.setItem(
+        "projectCreatedAt",
+        new Date().toISOString()
+    );
+
+
+    /* SCROLL */
+
+    setTimeout(function() {
+
+        plan.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    },100);
+
+}
+
+
+/* START */
+
+loadActionSnapshot();
+
+</script>
+
+
+</body>
+</html>

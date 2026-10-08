@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ImpactX — What-If Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Impact<span>X</span>
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="problems.html">Problems</a>
+
+        <a href="explorer.html">Explorer</a>
+
+        <a href="solutions.html">Solution Lab</a>
+
+        <a href="simulator.html" class="active">
+            Simulator
+        </a>
+
+        <a href="action.html">Action Lab</a>
+
+        <a href="impact.html">Impact</a>
+
+        <a href="library.html">Library</a>
+
+    </nav>
+
+    <button class="nav-button"
+            onclick="window.location.href='solutions.html'">
+
+        Back to Solutions
+
+    </button>
+
+</header>
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="problem-hero">
+
+    <div class="badge">
+        ✦ WHAT-IF SIMULATOR
+    </div>
+
+    <h1>
+        Test Your
+        <span>Possibilities.</span>
+    </h1>
+
+    <p>
+        Change the evaluation factors and see how different
+        solutions perform before deciding what to do.
+    </p>
+
+</section>
+
+
+<!-- CURRENT PROBLEM -->
+
+<section style="padding:20px 7% 30px;">
+
+    <div class="problem-card"
+         style="max-width:1000px;
+                margin:auto;
+                min-height:auto;">
+
+        <span class="problem-category">
+            CURRENT PROBLEM
+        </span>
+
+        <h2 id="simProblem"
+            style="margin-top:12px;
+                   color:var(--text-heading);">
+
+            Loading...
+
+        </h2>
+
+        <p style="margin-top:10px;
+                  color:var(--text-muted);">
+
+            Your evaluation below will help compare the
+            possible solutions for this problem.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SIMULATOR -->
+
+<section style="padding:30px 7% 100px;">
+
+
+    <!-- EVALUATION -->
+
+    <div class="problem-card"
+         style="max-width:1000px;
+                margin:0 auto 40px;
+                min-height:auto;">
+
+        <span class="section-label">
+            DECISION ENGINE
+        </span>
+
+        <h2 style="margin-top:10px;">
+            What matters most?
+        </h2>
+
+        <p style="margin-top:8px;
+                  color:var(--text-muted);">
+
+            Adjust the three factors to explore different
+            possibilities. The scores update instantly.
+
+        </p>
+
+
+        <!-- IMPACT -->
+
+        <div style="margin-top:32px;">
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                gap:15px;
+                flex-wrap:wrap;
+            ">
+
+                <label style="font-weight:800;">
+                    🌍 Impact
+                </label>
+
+                <strong id="impactValue">
+                    50
+                </strong>
+
+            </div>
+
+            <input
+                type="range"
+                id="impactSlider"
+                min="0"
+                max="100"
+                value="50"
+                style="width:100%;
+                       margin-top:10px;"
+            >
+
+            <p style="
+                margin-top:6px;
+                color:var(--text-muted);
+                font-size:14px;
+            ">
+
+                How strongly could the solution address
+                the problem?
+
+            </p>
+
+        </div>
+
+
+        <!-- FEASIBILITY -->
+
+        <div style="margin-top:28px;">
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                gap:15px;
+                flex-wrap:wrap;
+            ">
+
+                <label style="font-weight:800;">
+                    🛠️ Feasibility
+                </label>
+
+                <strong id="feasibilityValue">
+                    50
+                </strong>
+
+            </div>
+
+            <input
+                type="range"
+                id="feasibilitySlider"
+                min="0"
+                max="100"
+                value="50"
+                style="width:100%;
+                       margin-top:10px;"
+            >
+
+            <p style="
+                margin-top:6px;
+                color:var(--text-muted);
+                font-size:14px;
+            ">
+
+                How realistic is it to implement?
+
+            </p>
+
+        </div>
+
+
+        <!-- SUSTAINABILITY -->
+
+        <div style="margin-top:28px;">
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                gap:15px;
+                flex-wrap:wrap;
+            ">
+
+                <label style="font-weight:800;">
+                    ♻️ Sustainability
+                </label>
+
+                <strong id="sustainabilityValue">
+                    50
+                </strong>
+
+            </div>
+
+            <input
+                type="range"
+                id="sustainabilitySlider"
+                min="0"
+                max="100"
+                value="50"
+                style="width:100%;
+                       margin-top:10px;"
+            >
+
+            <p style="
+                margin-top:6px;
+                color:var(--text-muted);
+                font-size:14px;
+            ">
+
+                Can the solution continue working over time?
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LIVE STATUS -->
+
+    <div style="
+        max-width:1000px;
+        margin:0 auto 40px;
+        padding:18px 22px;
+        background:#EEE7F8;
+        border:2px solid #CDBBE4;
+        border-radius:18px;
+        text-align:center;
+    ">
+
+        <strong style="color:#6B4FA3;">
+            ⚡ LIVE EVALUATION
+        </strong>
+
+        <p style="
+            margin-top:6px;
+            color:#42686C;
+        ">
+
+            Move any slider to see the ranking change.
+
+        </p>
+
+    </div>
+
+
+    <!-- SOLUTION COMPARISON -->
+
+    <div class="problem-grid">
+
+
+        <!-- SOLUTION 1 -->
+
+        <article class="problem-card"
+                 id="solutionCard1">
+
+            <span class="problem-category">
+                OPTION 01
+            </span>
+
+            <div class="problem-icon">
+                💡
+            </div>
+
+            <h3>
+                Smart Monitoring
+            </h3>
+
+            <p>
+                Uses monitoring and information to identify
+                unnecessary resource use.
+            </p>
+
+            <div style="margin-top:25px;">
+
+                <span class="section-label">
+                    OVERALL SCORE
+                </span>
+
+                <h2 id="score1"
+                    style="margin-top:6px;
+                           color:var(--primary-dark);">
+
+                    50
+
+                </h2>
+
+                <div style="
+                    margin-top:10px;
+                    height:8px;
+                    background:#E5F1F1;
+                    border-radius:20px;
+                    overflow:hidden;
+                ">
+
+                    <div id="bar1"
+                         style="
+                            height:100%;
+                            width:50%;
+                            background:#3FA9A3;
+                            border-radius:20px;
+                         ">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SOLUTION 2 -->
+
+        <article class="problem-card"
+                 id="solutionCard2">
+
+            <span class="problem-category">
+                OPTION 02
+            </span>
+
+            <div class="problem-icon">
+                👥
+            </div>
+
+            <h3>
+                Student Action Teams
+            </h3>
+
+            <p>
+                Uses student participation and teamwork
+                to address the problem.
+            </p>
+
+            <div style="margin-top:25px;">
+
+                <span class="section-label">
+                    OVERALL SCORE
+                </span>
+
+                <h2 id="score2"
+                    style="margin-top:6px;
+                           color:var(--primary-dark);">
+
+                    50
+
+                </h2>
+
+                <div style="
+                    margin-top:10px;
+                    height:8px;
+                    background:#E5F1F1;
+                    border-radius:20px;
+                    overflow:hidden;
+                ">
+
+                    <div id="bar2"
+                         style="
+                            height:100%;
+                            width:50%;
+                            background:#3FA9A3;
+                            border-radius:20px;
+                         ">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SOLUTION 3 -->
+
+        <article class="problem-card"
+                 id="solutionCard3">
+
+            <span class="problem-category">
+                OPTION 03
+            </span>
+
+            <div class="problem-icon">
+                ⚙️
+            </div>
+
+            <h3>
+                Process Redesign
+            </h3>
+
+            <p>
+                Changes the existing process to reduce
+                the chance of the problem happening again.
+            </p>
+
+            <div style="margin-top:25px;">
+
+                <span class="section-label">
+                    OVERALL SCORE
+                </span>
+
+                <h2 id="score3"
+                    style="margin-top:6px;
+                           color:var(--primary-dark);">
+
+                    50
+
+                </h2>
+
+                <div style="
+                    margin-top:10px;
+                    height:8px;
+                    background:#E5F1F1;
+                    border-radius:20px;
+                    overflow:hidden;
+                ">
+
+                    <div id="bar3"
+                         style="
+                            height:100%;
+                            width:50%;
+                            background:#3FA9A3;
+                            border-radius:20px;
+                         ">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div class="create-problem"
+         style="margin-top:55px;">
+
+        <span class="section-label">
+            RECOMMENDED POSSIBILITY
+        </span>
+
+        <h2 id="bestSolution">
+            Smart Monitoring — 50/100
+        </h2>
+
+        <p>
+            The highlighted option currently has the strongest
+            evaluation score based on your selected factors.
+        </p>
+
+        <p style="
+            margin-top:10px;
+            font-size:13px;
+            opacity:0.8;
+        ">
+
+            Note: This score is a planning aid, not a guarantee
+            of real-world results.
+
+        </p>
+
+        <button class="primary-btn"
+                style="margin-top:18px;"
+                onclick="window.location.href='action.html'">
+
+            Turn Into Action →
+
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="logo">
+        Impact<span>X</span>
+    </div>
+
+    <p>
+        From Problems to Possibilities.
+    </p>
+
+</footer>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    function updateScoreBars() {
+
+        const score1 =
+            Number(document.getElementById("score1").textContent) || 0;
+
+        const score2 =
+            Number(document.getElementById("score2").textContent) || 0;
+
+        const score3 =
+            Number(document.getElementById("score3").textContent) || 0;
+
+
+        document.getElementById("bar1").style.width =
+            score1 + "%";
+
+        document.getElementById("bar2").style.width =
+            score2 + "%";
+
+        document.getElementById("bar3").style.width =
+            score3 + "%";
+
+    }
+
+
+    const sliders = [
+
+        document.getElementById("impactSlider"),
+
+        document.getElementById("feasibilitySlider"),
+
+        document.getElementById("sustainabilitySlider")
+
+    ];
+
+
+    sliders.forEach(function (slider) {
+
+        if (slider) {
+
+            slider.addEventListener("input", function () {
+
+                setTimeout(updateScoreBars, 0);
+
+            });
+
+        }
+
+    });
+
+
+    updateScoreBars();
+
+});
+
+</script>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

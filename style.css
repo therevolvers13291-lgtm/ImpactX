@@ -1,0 +1,1652 @@
+/* =====================================================
+   IMPACTX — SOOTHING LIGHT THEME
+   ===================================================== */
+
+:root {
+    /* 🌊 IMPACTX BRAND */
+    --bg: #BFE8E8;
+    --surface: #FFFFFF;
+    --surface-soft: #E5F6F5;
+
+    /* TEXT */
+    --text: #42686C;
+    --text-heading: #183E42;
+    --text-muted: #648084;
+
+    /* 🟢 PRIMARY TEAL */
+    --primary: #3FA9A3;
+    --primary-dark: #258C95;
+    --primary-soft: #D5F1F0;
+
+    /* 🩵 POWDER BLUE */
+    --blue: #4F9FC7;
+    --blue-soft: #DCEFF7;
+
+    /* 🪻 LAVENDER */
+    --lavender: #D8C7ED;
+    --lavender-soft: #F0EAF8;
+
+    /* 🌸 CORAL */
+    --coral: #F1A69A;
+    --coral-soft: #F9E5E1;
+
+    /* 🌈 ACCENT COLOURS */
+    --accent-purple: #8B6FC8;
+    --accent-blue: #438ED1;
+    --accent-teal: #25A69A;
+    --accent-coral: #EA8F83;
+
+    /* BORDER + SHADOW */
+    --border: #9FD1D2;
+    --shadow: 0 12px 35px rgba(37, 100, 105, 0.14);
+}
+/* =====================================================
+   RESET
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   NAVBAR
+   ===================================================== */
+
+.navbar {
+    height: 78px;
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text-heading);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-dark);
+}
+
+.nav-button {
+    background: var(--primary);
+    color: white;
+
+    border: none;
+    padding: 11px 19px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.nav-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.hero {
+    min-height: 700px;
+
+    padding: 90px 7%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+    gap: 70px;
+
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: radial-gradient(
+        circle,
+        rgba(111, 159, 170, 0.13),
+        transparent 70%
+    );
+
+    top: -120px;
+    right: -100px;
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 8px 14px;
+    margin-bottom: 23px;
+
+    border-radius: 50px;
+
+    background: var(--primary-soft);
+    border: 1px solid #c9ded9;
+
+    color: var(--primary-dark);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+h1 {
+    color: var(--text-heading);
+
+    font-size: clamp(52px, 6vw, 82px);
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+
+    max-width: 700px;
+}
+
+h1 span {
+    display: block;
+
+    color: var(--primary-dark);
+}
+
+.hero-content p {
+    margin-top: 27px;
+
+    max-width: 590px;
+
+    color: var(--text-muted);
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+.hero-buttons {
+    display: flex;
+    gap: 13px;
+    margin-top: 35px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 14px 22px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.primary-btn {
+    border: none;
+
+    color: white;
+
+    background: var(--primary);
+}
+
+.primary-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    color: var(--primary-dark);
+
+    background: white;
+
+    border: 1px solid var(--border);
+}
+
+.secondary-btn:hover {
+    background: var(--primary-soft);
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   HERO VISUAL
+   ===================================================== */
+
+.hero-visual {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.impact-card {
+    width: 430px;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background: rgba(255,255,255,0.96);
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+
+    position: relative;
+
+    z-index: 3;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+
+    color: #82918e;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+.status {
+    color: #57947e;
+}
+
+.problem-node,
+.solution-node {
+    margin-top: 22px;
+
+    padding: 19px;
+
+    border-radius: 14px;
+
+    background: var(--surface-soft);
+
+    border: 1px solid var(--border);
+}
+
+.problem-node small,
+.solution-node small {
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    margin-bottom: 8px;
+}
+
+.problem-node strong {
+    color: var(--text-heading);
+    font-size: 18px;
+}
+
+.arrow {
+    text-align: center;
+
+    color: var(--primary);
+
+    font-size: 23px;
+
+    margin: 7px;
+}
+
+.mini-solution {
+    padding: 11px 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.mini-solution:last-child {
+    border-bottom: none;
+}
+
+.mini-solution span {
+    color: var(--blue);
+
+    margin-right: 10px;
+
+    font-weight: 800;
+}
+
+.impact-line {
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+}
+
+.impact-line strong {
+    color: var(--primary-dark);
+    font-size: 21px;
+}
+
+.orbit {
+    position: absolute;
+
+    border: 1px solid rgba(95,143,135,0.13);
+
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 500px;
+    height: 500px;
+}
+
+.orbit-two {
+    width: 620px;
+    height: 620px;
+}
+
+
+/* =====================================================
+   WORKFLOW
+   ===================================================== */
+
+.workflow {
+    padding: 100px 7%;
+
+    background: #edf4f2;
+}
+
+.section-heading span,
+.section-label {
+    color: var(--primary-dark);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin-top: 13px;
+
+    color: var(--text-heading);
+
+    font-size: 43px;
+
+    letter-spacing: -2px;
+}
+
+.section-heading h2 span {
+    color: var(--text-muted);
+
+    font-size: inherit;
+    letter-spacing: inherit;
+}
+
+.workflow-grid {
+    margin-top: 48px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.workflow-card {
+    padding: 28px;
+
+    min-height: 225px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow: 0 7px 25px rgba(45,76,70,0.045);
+
+    transition: 0.3s;
+}
+
+.workflow-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #b8d1cb;
+
+    box-shadow: var(--shadow);
+}
+
+.number {
+    color: var(--primary);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.workflow-card h3 {
+    margin-top: 43px;
+
+    color: var(--text-heading);
+
+    font-size: 21px;
+}
+
+.workflow-card p {
+    margin-top: 11px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   PROBLEM HUB
+   ===================================================== */
+
+.problem-hero {
+    padding: 95px 7% 65px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(111,159,170,0.10),
+            transparent 60%
+        );
+}
+
+.problem-hero h1 {
+    margin: 20px auto;
+}
+
+.problem-hero p {
+    max-width: 650px;
+
+    margin: 24px auto;
+
+    color: var(--text-muted);
+
+    line-height: 1.7;
+}
+
+
+/* PROBLEM SECTION */
+
+.problem-section {
+    padding: 50px 7% 100px;
+}
+
+.problem-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 30px;
+
+    margin-bottom: 42px;
+}
+
+.problem-top h2 {
+    margin-top: 10px;
+
+    color: var(--text-heading);
+
+    font-size: 40px;
+}
+
+.problem-top h2 span {
+    color: var(--text-muted);
+}
+
+.filter-buttons {
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+.filter {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    color: var(--text-muted);
+
+    padding: 9px 15px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.active-filter,
+.filter:hover {
+    color: var(--primary-dark);
+
+    border-color: #b5d0c9;
+
+    background: var(--primary-soft);
+}
+
+
+/* PROBLEM CARDS */
+
+.problem-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.problem-card {
+    padding: 27px;
+
+    min-height: 330px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    box-shadow: 0 6px 25px rgba(45,76,70,0.045);
+
+    transition: 0.3s;
+}
+
+.problem-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #b6d0ca;
+
+    box-shadow: var(--shadow);
+}
+
+.problem-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: var(--blue-soft);
+
+    font-size: 21px;
+
+    margin-bottom: 23px;
+}
+
+.problem-category {
+    color: var(--primary-dark);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.problem-card h3 {
+    margin-top: 11px;
+
+    color: var(--text-heading);
+
+    font-size: 19px;
+
+    line-height: 1.35;
+}
+
+.problem-card p {
+    margin-top: 11px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+.problem-button {
+    margin-top: 20px;
+
+    background: none;
+
+    border: none;
+
+    color: var(--primary-dark);
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    padding: 0;
+}
+
+.problem-button:hover {
+    color: var(--blue);
+}
+
+
+/* =====================================================
+   CREATE PROBLEM
+   ===================================================== */
+
+.create-problem {
+    margin: 0 7% 90px;
+
+    padding: 42px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            120deg,
+            var(--primary-soft),
+            var(--blue-soft)
+        );
+
+    border: 1px solid #cfe1dd;
+}
+
+.create-problem h2 {
+    margin-top: 9px;
+
+    color: var(--text-heading);
+
+    font-size: 29px;
+}
+
+.create-problem p {
+    margin-top: 8px;
+
+    color: var(--text-muted);
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+    padding: 42px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #e8f0ee;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-muted);
+}
+
+
+/* =====================================================
+   IMPORTANT: TEXT INPUT / TEXTAREA
+   ===================================================== */
+
+input,
+textarea,
+select {
+    background: white !important;
+
+    color: var(--text-heading) !important;
+
+    border: 1px solid var(--border);
+
+    outline: none;
+
+    font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #82918e !important;
+
+    opacity: 1;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px rgba(95,143,135,0.12);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 950px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 70px;
+    }
+
+    .workflow-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .problem-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .problem-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    h1 {
+        font-size: 52px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .impact-card {
+        width: 100%;
+    }
+
+    .orbit {
+        display: none;
+    }
+
+    .workflow-grid,
+    .problem-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .create-problem {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+/* =========================================
+   IMPACTX — VIBRANT PASTEL ACCENTS
+   ========================================= */
+
+/* Hero highlighted word */
+h1 span {
+    color: var(--accent-blue);
+}
+
+/* Badge */
+.badge {
+    background: var(--purple-soft);
+    border-color: #D8CBEA;
+    color: var(--accent-purple);
+}
+
+/* Main buttons */
+.primary-btn {
+    background: var(--accent-teal);
+}
+
+.primary-btn:hover {
+    background: #318D80;
+}
+
+/* Secondary button */
+.secondary-btn {
+    color: var(--accent-purple);
+}
+
+.secondary-btn:hover {
+    background: var(--purple-soft);
+}
+
+/* Hero glow */
+.hero::before {
+    background: radial-gradient(
+        circle,
+        rgba(79, 143, 217, 0.16),
+        transparent 70%
+    );
+}
+
+/* ImpactX Engine problem box */
+.problem-node {
+    background: var(--blue-soft);
+}
+
+/* ImpactX Engine solution area */
+.solution-node {
+    background: var(--purple-soft);
+}
+
+/* Engine arrow */
+.arrow {
+    color: var(--accent-coral);
+}
+
+/* Engine solution numbers */
+.mini-solution span {
+    color: var(--accent-blue);
+}
+
+/* Impact percentage */
+.impact-line strong {
+    color: var(--accent-teal);
+}
+
+/* Workflow numbers */
+.number {
+    color: var(--accent-purple);
+}
+
+/* Workflow cards */
+.workflow-card:nth-child(1) {
+    border-top: 4px solid var(--accent-teal);
+}
+
+.workflow-card:nth-child(2) {
+    border-top: 4px solid var(--accent-blue);
+}
+
+.workflow-card:nth-child(3) {
+    border-top: 4px solid var(--accent-purple);
+}
+
+.workflow-card:nth-child(4) {
+    border-top: 4px solid var(--accent-coral);
+}
+
+/* Problem icons */
+.problem-card:nth-child(3n + 1) .problem-icon {
+    background: #E1F2EE;
+}
+
+.problem-card:nth-child(3n + 2) .problem-icon {
+    background: #E4F0FA;
+}
+
+.problem-card:nth-child(3n) .problem-icon {
+    background: #F0E9F8;
+}
+
+/* Problem categories */
+.problem-card:nth-child(3n + 1) .problem-category {
+    color: var(--accent-teal);
+}
+
+.problem-card:nth-child(3n + 2) .problem-category {
+    color: var(--accent-blue);
+}
+
+.problem-card:nth-child(3n) .problem-category {
+    color: var(--accent-purple);
+}
+
+/* Problem links */
+.problem-button {
+    color: var(--accent-blue);
+}
+
+.problem-button:hover {
+    color: var(--accent-purple);
+}
+
+/* Create problem section */
+.create-problem {
+    background:
+        linear-gradient(
+            120deg,
+            var(--primary-soft),
+            var(--blue-soft),
+            var(--purple-soft)
+        );
+}
+
+/* Active filter */
+.active-filter,
+.filter:hover {
+    color: var(--accent-purple);
+    border-color: #C9B9E2;
+    background: var(--purple-soft);
+}
+/* 🌊 VIBRANT SEA-BLUE BACKGROUND */
+
+body {
+    background: var(--bg);
+}
+
+.hero {
+    background: var(--bg);
+}
+
+.workflow {
+    background: #AEE0E1;
+}
+
+.problem-hero {
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(255,255,255,0.35),
+            transparent 60%
+        ),
+        var(--bg);
+}/* =========================================
+   IMPACTX — FINAL BRAND COLOURS
+   ========================================= */
+
+body {
+    background: var(--bg);
+}
+
+/* Main hero */
+.hero {
+    background: var(--bg);
+}
+
+/* Hero glow */
+.hero::before {
+    background: radial-gradient(
+        circle,
+        rgba(79, 159, 199, 0.20),
+        transparent 70%
+    );
+}
+
+/* Main badge */
+.badge {
+    background: var(--lavender-soft);
+    border-color: var(--lavender);
+    color: var(--accent-purple);
+}
+
+/* Main heading accent */
+h1 span {
+    color: var(--primary-dark);
+}
+
+/* Buttons */
+.primary-btn {
+    background: var(--primary);
+}
+
+.primary-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Secondary buttons */
+.secondary-btn {
+    color: var(--primary-dark);
+}
+
+.secondary-btn:hover {
+    background: var(--blue-soft);
+}
+
+/* ImpactX Engine */
+.problem-node {
+    background: var(--blue-soft);
+}
+
+.solution-node {
+    background: var(--lavender-soft);
+}
+
+.arrow {
+    color: var(--coral);
+}
+
+.mini-solution span {
+    color: var(--accent-blue);
+}
+
+.impact-line strong {
+    color: var(--primary-dark);
+}
+
+/* Workflow section */
+.workflow {
+    background: #A9DDDE;
+}
+
+/* Workflow numbers */
+.number {
+    color: var(--accent-purple);
+}
+
+/* Workflow cards */
+.workflow-card:nth-child(1) {
+    border-top: 4px solid var(--accent-teal);
+}
+
+.workflow-card:nth-child(2) {
+    border-top: 4px solid var(--accent-blue);
+}
+
+.workflow-card:nth-child(3) {
+    border-top: 4px solid var(--accent-purple);
+}
+
+.workflow-card:nth-child(4) {
+    border-top: 4px solid var(--accent-coral);
+}
+
+/* Problem icons */
+.problem-card:nth-child(3n + 1) .problem-icon {
+    background: var(--primary-soft);
+}
+
+.problem-card:nth-child(3n + 2) .problem-icon {
+    background: var(--blue-soft);
+}
+
+.problem-card:nth-child(3n) .problem-icon {
+    background: var(--lavender-soft);
+}
+
+/* Problem categories */
+.problem-card:nth-child(3n + 1) .problem-category {
+    color: var(--accent-teal);
+}
+
+.problem-card:nth-child(3n + 2) .problem-category {
+    color: var(--accent-blue);
+}
+
+.problem-card:nth-child(3n) .problem-category {
+    color: var(--accent-purple);
+}
+
+/* Problem links */
+.problem-button {
+    color: var(--primary-dark);
+}
+
+.problem-button:hover {
+    color: var(--accent-purple);
+}
+
+/* Create Problem */
+.create-problem {
+    background:
+        linear-gradient(
+            120deg,
+            var(--primary-soft),
+            var(--blue-soft),
+            var(--lavender-soft)
+        );
+}
+
+/* Filters */
+.active-filter,
+.filter:hover {
+    color: var(--accent-purple);
+    border-color: var(--lavender);
+    background: var(--lavender-soft);
+}
+
+/* Footer */
+footer {
+    background: #9ED2D3;
+}/* =========================================
+   IMPACTX — VIBRANT SEA BLUE THEME
+   ========================================= */
+
+html,
+body {
+    background: #BFE8E8 !important;
+    color: #183E42 !important;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #FFFFFF !important;
+    border-bottom: 2px solid #9FD1D2 !important;
+}
+
+/* HERO */
+.hero,
+.problem-hero {
+    background: #BFE8E8 !important;
+}
+
+/* HERO GLOW */
+.hero::before {
+    background: radial-gradient(
+        circle,
+        rgba(67, 142, 209, 0.30),
+        transparent 70%
+    ) !important;
+}
+
+/* MAIN HEADINGS */
+h1,
+h2,
+h3 {
+    color: #183E42 !important;
+}
+
+h1 span {
+    color: #258C95 !important;
+}
+
+/* BADGE */
+.badge {
+    background: #D8C7ED !important;
+    color: #6B4FA3 !important;
+    border-color: #BFA9DD !important;
+}
+
+/* PRIMARY BUTTON */
+.primary-btn {
+    background: #3FA9A3 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.primary-btn:hover {
+    background: #258C95 !important;
+}
+
+/* SECONDARY BUTTON */
+.secondary-btn {
+    background: #FFFFFF !important;
+    color: #258C95 !important;
+    border: 2px solid #3FA9A3 !important;
+}
+
+/* HERO ENGINE CARD */
+.impact-card {
+    background: #FFFFFF !important;
+    border: 2px solid #9FD1D2 !important;
+    box-shadow: 0 18px 45px rgba(37, 100, 105, 0.18) !important;
+}
+
+/* PROBLEM NODE */
+.problem-node {
+    background: #DCEFF7 !important;
+    border-color: #9BCDE0 !important;
+}
+
+/* SOLUTION NODE */
+.solution-node {
+    background: #EEE7F8 !important;
+    border-color: #CDBBE4 !important;
+}
+
+/* MINI SOLUTIONS */
+.mini-solution {
+    background: #FFFFFF !important;
+    border-color: #B9DDF0 !important;
+}
+
+/* IMPACT */
+.impact-line strong {
+    color: #258C95 !important;
+}
+
+/* WORKFLOW */
+.workflow {
+    background: #8FD0D2 !important;
+}
+
+/* WORKFLOW CARDS */
+.workflow-card {
+    background: #FFFFFF !important;
+    border: 1px solid #9FD1D2 !important;
+    box-shadow: 0 12px 30px rgba(37, 100, 105, 0.12) !important;
+}
+
+/* WORKFLOW NUMBERS */
+.number {
+    color: #8B6FC8 !important;
+}
+
+/* PROBLEM CARDS */
+.problem-card {
+    background: #FFFFFF !important;
+    border: 2px solid #9FD1D2 !important;
+    box-shadow: 0 12px 30px rgba(37, 100, 105, 0.12) !important;
+}
+
+/* PROBLEM ICONS */
+.problem-icon {
+    background: #D5F1F0 !important;
+}
+
+/* PROBLEM CATEGORY */
+.problem-category {
+    color: #258C95 !important;
+}
+
+/* PROBLEM BUTTON */
+.problem-button {
+    color: #258C95 !important;
+}
+
+/* CREATE PROBLEM */
+.create-problem {
+    background: linear-gradient(
+        135deg,
+        #D5F1F0,
+        #DCEFF7,
+        #EEE7F8
+    ) !important;
+    border: 2px solid #9FD1D2 !important;
+}
+
+/* FILTERS */
+.filter {
+    background: #FFFFFF !important;
+    border-color: #9FD1D2 !important;
+}
+
+.active-filter {
+    background: #D8C7ED !important;
+    color: #6B4FA3 !important;
+    border-color: #BFA9DD !important;
+}
+
+/* GENERAL INPUTS */
+input,
+textarea,
+select {
+    background: #FFFFFF !important;
+    border-color: #9FD1D2 !important;
+}
+
+/* FOOTER */
+footer {
+    background: #258C95 !important;
+    color: #FFFFFF !important;
+}/* =========================================
+   ACTION LAB — POLISHED UI
+   ========================================= */
+
+.problem-hero {
+    padding: 80px 6% 45px !important;
+}
+
+.problem-hero h1 {
+    font-size: clamp(45px, 5vw, 70px) !important;
+    margin-top: 18px !important;
+}
+
+.problem-hero p {
+    max-width: 700px !important;
+    font-size: 18px !important;
+    line-height: 1.7 !important;
+}
+
+/* Action Lab section */
+.problem-section {
+    padding: 50px 6% 90px !important;
+}
+
+/* Selected problem heading */
+.section-heading {
+    margin-bottom: 40px !important;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px, 4vw, 48px) !important;
+    margin: 15px 0 8px !important;
+    color: #183E42 !important;
+}
+
+.section-heading p {
+    color: #42686C !important;
+    font-size: 17px !important;
+}
+
+/* Action cards */
+.workflow-grid {
+    gap: 24px !important;
+}
+
+.workflow-card {
+    min-height: 360px !important;
+    padding: 30px !important;
+    border-radius: 24px !important;
+    background: #FFFFFF !important;
+    border: 2px solid #9FD1D2 !important;
+    box-shadow: 0 15px 35px rgba(37, 100, 105, 0.12) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.workflow-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 42px rgba(37, 100, 105, 0.18) !important;
+}
+
+/* Numbers */
+.workflow-card .number {
+    font-size: 17px !important;
+    font-weight: 900 !important;
+    margin-bottom: 28px !important;
+    color: #8B6FC8 !important;
+}
+
+/* Card headings */
+.workflow-card h3 {
+    font-size: 22px !important;
+    color: #183E42 !important;
+    margin-bottom: 12px !important;
+}
+
+/* Card descriptions */
+.workflow-card p {
+    color: #648084 !important;
+    line-height: 1.6 !important;
+}
+
+/* ALL ACTION INPUTS */
+.workflow-card input,
+.workflow-card textarea,
+.workflow-card select {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 15px !important;
+    padding: 14px 16px !important;
+    border: 2px solid #B9DDF0 !important;
+    border-radius: 12px !important;
+    background: #F8FCFD !important;
+    color: #183E42 !important;
+    font-family: inherit !important;
+    font-size: 14px !important;
+    outline: none !important;
+    transition: 0.2s ease !important;
+}
+
+/* Textarea */
+.workflow-card textarea {
+    min-height: 120px !important;
+    resize: vertical !important;
+}
+
+/* Focus effect */
+.workflow-card input:focus,
+.workflow-card textarea:focus,
+.workflow-card select:focus {
+    border-color: #3FA9A3 !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 0 0 4px rgba(63, 169, 163, 0.12) !important;
+}
+
+/* Placeholder */
+.workflow-card input::placeholder,
+.workflow-card textarea::placeholder {
+    color: #8AA5A8 !important;
+}
+
+/* Launch section */
+.create-problem {
+    border-radius: 28px !important;
+    padding: 55px 30px !important;
+    box-shadow: 0 15px 40px rgba(37, 100, 105, 0.12) !important;
+}
+
+.create-problem h2 {
+    color: #183E42 !important;
+    font-size: 34px !important;
+    margin: 15px 0 !important;
+}
+
+.create-problem p {
+    color: #42686C !important;
+    max-width: 650px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Start button */
+.create-problem .primary-btn {
+    margin-top: 15px !important;
+    padding: 15px 28px !important;
+    border-radius: 12px !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+    box-shadow: 0 8px 20px rgba(37, 140, 149, 0.22) !important;
+}
+
+/* Success / error message */
+#projectMessage {
+    color: #258C95 !important;
+    font-size: 15px !important;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .workflow-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .workflow-card {
+        min-height: auto !important;
+    }
+}/* =========================================
+   ACTION LAB — FIX HORIZONTAL OVERFLOW
+   ========================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
+/* Keep the Action Lab grid inside the screen */
+.workflow-grid {
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+}
+
+/* Prevent cards from becoming wider than their column */
+.workflow-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Keep everything inside the viewport */
+.problem-section,
+.problem-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Proper spacing on smaller screens */
+@media (max-width: 1100px) {
+    .workflow-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 650px) {
+    .workflow-grid {
+        grid-template-columns: 1fr !important;
+    }
+}/* =========================================
+   IMPACTX — 8 PAGE NAVBAR
+   ========================================= */
+
+.navbar {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 18px 4% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+}
+
+.nav-links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 18px !important;
+    flex-wrap: wrap !important;
+}
+
+.nav-links a {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    font-size: 13px !important;
+}
+
+/* Smaller screens */
+@media (max-width: 1100px) {
+
+    .navbar {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 14px !important;
+    }
+
+    .nav-links {
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .nav-links {
+        gap: 10px !important;
+    }
+
+    .nav-links a {
+        font-size: 12px !important;
+    }
+}

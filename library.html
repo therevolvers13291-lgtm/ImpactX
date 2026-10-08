@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ImpactX — Impact Library</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        Impact<span>X</span>
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="problems.html">
+            Problems
+        </a>
+
+        <a href="explorer.html">
+            Explorer
+        </a>
+
+        <a href="solutions.html">
+            Solution Lab
+        </a>
+
+        <a href="simulator.html">
+            Simulator
+        </a>
+
+        <a href="action.html">
+            Action Lab
+        </a>
+
+        <a href="impact.html">
+            Impact
+        </a>
+
+        <a href="library.html"
+           class="active">
+            Library
+        </a>
+
+    </nav>
+
+
+    <button class="nav-button"
+            onclick="window.location.href='problems.html'">
+
+        Start New Project
+
+    </button>
+
+</header>
+
+
+
+<main>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="problem-hero">
+
+    <div class="badge">
+        ✦ IMPACTX PROJECT LIBRARY
+    </div>
+
+
+    <h1>
+        Ideas That
+        <span>Turned Into Action.</span>
+    </h1>
+
+
+    <p>
+        The Impact Library stores your completed project
+        journey — from the original problem to the solution,
+        action plan and evaluation.
+    </p>
+
+</section>
+
+
+
+<!-- ================= LIBRARY ================= -->
+
+<section class="problem-section">
+
+
+    <div class="section-heading">
+
+        <span class="badge">
+            PROJECT ARCHIVE
+        </span>
+
+
+        <h2>
+            Your Impact
+            <span>Projects.</span>
+        </h2>
+
+
+        <p>
+            Revisit the ideas you have explored and the
+            plans you have created through ImpactX.
+        </p>
+
+    </div>
+
+
+
+    <!-- ================= EMPTY STATE ================= -->
+
+    <div id="libraryEmpty"
+         class="create-problem"
+         style="
+            text-align:center;
+            max-width:900px;
+            margin:auto;
+         ">
+
+
+        <div style="
+            font-size:48px;
+            margin-bottom:15px;
+        ">
+            📚
+        </div>
+
+
+        <h2>
+            Your Library Is Empty
+        </h2>
+
+
+        <p>
+            Complete the ImpactX journey and create your
+            first project. Your project details will
+            automatically appear here.
+        </p>
+
+
+        <a href="problems.html"
+           class="primary-btn"
+           style="
+                display:inline-block;
+                text-decoration:none;
+                margin-top:18px;
+           ">
+
+            Explore Problems →
+
+        </a>
+
+    </div>
+
+
+
+    <!-- ================= PROJECT LIBRARY ================= -->
+
+    <div id="projectLibrary"
+         style="display:none;">
+
+
+        <!-- PROJECT HEADER -->
+
+        <div class="problem-card"
+             style="
+                max-width:1100px;
+                margin:0 auto 30px;
+                min-height:auto;
+             ">
+
+
+            <span class="problem-category">
+                SAVED PROJECT
+            </span>
+
+
+            <h2 id="libraryProjectTitle"
+                style="
+                    margin-top:12px;
+                    color:var(--text-heading);
+                ">
+
+                ImpactX Project
+
+            </h2>
+
+
+            <p id="libraryProjectDate"
+               style="
+                    margin-top:8px;
+                    color:var(--text-muted);
+               ">
+
+                Project created through ImpactX.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= PROJECT DETAILS ================= -->
+
+        <div class="workflow-grid">
+
+
+            <!-- PROBLEM -->
+
+            <div class="workflow-card">
+
+                <div class="number">
+                    01
+                </div>
+
+
+                <h3>
+                    🎯 Problem
+                </h3>
+
+
+                <p>
+                    The real-world challenge your
+                    project is addressing.
+                </p>
+
+
+                <strong id="libraryProblem">
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <!-- SOLUTION -->
+
+            <div class="workflow-card">
+
+                <div class="number">
+                    02
+                </div>
+
+
+                <h3>
+                    💡 Solution
+                </h3>
+
+
+                <p>
+                    The possibility selected through
+                    the Solution Lab and Simulator.
+                </p>
+
+
+                <strong id="librarySolution">
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <!-- GOAL -->
+
+            <div class="workflow-card">
+
+                <div class="number">
+                    03
+                </div>
+
+
+                <h3>
+                    🎯 Project Goal
+                </h3>
+
+
+                <p>
+                    The main objective created
+                    in the Action Lab.
+                </p>
+
+
+                <strong id="libraryGoal">
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <!-- SCORE -->
+
+            <div class="workflow-card">
+
+                <div class="number">
+                    04
+                </div>
+
+
+                <h3>
+                    📊 Evaluation
+                </h3>
+
+
+                <p>
+                    The current planning indicator
+                    from the simulator.
+                </p>
+
+
+                <strong id="libraryScore">
+                    0%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= ADDITIONAL DETAILS ================= -->
+
+        <div style="
+            display:grid;
+            grid-template-columns:
+                repeat(2,minmax(0,1fr));
+            gap:20px;
+            max-width:1100px;
+            margin:30px auto 0;
+        ">
+
+
+            <!-- TEAM -->
+
+            <div class="problem-card"
+                 style="
+                    min-height:auto;
+                 ">
+
+
+                <span class="section-label">
+                    TEAM
+                </span>
+
+
+                <h3 id="libraryPeople"
+                    style="
+                        margin-top:10px;
+                        color:var(--text-heading);
+                    ">
+
+                    Not assigned
+
+                </h3>
+
+
+                <p>
+                    People responsible for
+                    implementing the project.
+                </p>
+
+            </div>
+
+
+
+            <!-- TIMELINE -->
+
+            <div class="problem-card"
+                 style="
+                    min-height:auto;
+                 ">
+
+
+                <span class="section-label">
+                    TIMELINE
+                </span>
+
+
+                <h3 id="libraryTimeline"
+                    style="
+                        margin-top:10px;
+                        color:var(--text-heading);
+                    ">
+
+                    Not created
+
+                </h3>
+
+
+                <p>
+                    Planned duration of the
+                    action project.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= STATUS ================= -->
+
+        <div class="create-problem"
+             style="
+                margin-top:45px;
+                text-align:center;
+             ">
+
+
+            <span class="badge">
+                PROJECT STATUS
+            </span>
+
+
+            <h2 id="libraryStatus">
+                🚀 Project Ready for Action
+            </h2>
+
+
+            <p id="libraryStatusText">
+                Your ImpactX project plan has been
+                successfully created.
+            </p>
+
+
+            <div style="
+                max-width:700px;
+                margin:25px auto 0;
+                padding:18px;
+                border-radius:18px;
+                background:#FFFFFF;
+                border:1px solid #9FD1D2;
+            ">
+
+                <strong>
+                    IMPACTX WORKFLOW
+                </strong>
+
+
+                <p style="margin-top:8px;">
+                    Problem → Explore → Solve → Act → Measure
+                </p>
+
+            </div>
+
+
+            <div style="
+                margin-top:25px;
+                display:flex;
+                justify-content:center;
+                gap:12px;
+                flex-wrap:wrap;
+            ">
+
+
+                <a href="impact.html"
+                   class="primary-btn"
+                   style="
+                        display:inline-block;
+                        text-decoration:none;
+                   ">
+
+                    View Impact Dashboard →
+
+                </a>
+
+
+                <a href="problems.html"
+                   class="secondary-btn"
+                   style="
+                        display:inline-block;
+                        text-decoration:none;
+                        padding:14px 22px;
+                        border-radius:12px;
+                   ">
+
+                    Start Another Project
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="logo">
+        Impact<span>X</span>
+    </div>
+
+
+    <p>
+        From Problems to Possibilities.
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+/* =========================================
+   IMPACT LIBRARY
+   ========================================= */
+
+function loadLibrary() {
+
+    const projectCreated =
+        localStorage.getItem("projectCreated");
+
+
+    const empty =
+        document.getElementById("libraryEmpty");
+
+
+    const library =
+        document.getElementById("projectLibrary");
+
+
+    /* ================= EMPTY STATE ================= */
+
+    if (projectCreated !== "true") {
+
+        if (empty) {
+            empty.style.display = "block";
+        }
+
+        if (library) {
+            library.style.display = "none";
+        }
+
+        return;
+    }
+
+
+    /* ================= SHOW PROJECT ================= */
+
+    if (empty) {
+        empty.style.display = "none";
+    }
+
+
+    if (library) {
+        library.style.display = "block";
+    }
+
+
+    /* ================= GET DATA ================= */
+
+    const problem =
+        localStorage.getItem("selectedProblem");
+
+
+    const solution =
+        localStorage.getItem("bestSolution") ||
+        localStorage.getItem("selectedSolution");
+
+
+    const goal =
+        localStorage.getItem("actionGoal");
+
+
+    const people =
+        localStorage.getItem("actionPeople");
+
+
+    const timeline =
+        localStorage.getItem("actionTimeline");
+
+
+    const score =
+        localStorage.getItem("bestScore") || "0";
+
+
+    const createdAt =
+        localStorage.getItem("projectCreatedAt");
+
+
+    /* ================= DISPLAY DATA ================= */
+
+    const problemElement =
+        document.getElementById(
+            "libraryProblem"
+        );
+
+
+    const solutionElement =
+        document.getElementById(
+            "librarySolution"
+        );
+
+
+    const goalElement =
+        document.getElementById(
+            "libraryGoal"
+        );
+
+
+    const scoreElement =
+        document.getElementById(
+            "libraryScore"
+        );
+
+
+    const peopleElement =
+        document.getElementById(
+            "libraryPeople"
+        );
+
+
+    const timelineElement =
+        document.getElementById(
+            "libraryTimeline"
+        );
+
+
+    if (problemElement) {
+
+        problemElement.textContent =
+            problem || "Not selected";
+
+    }
+
+
+    if (solutionElement) {
+
+        solutionElement.textContent =
+            solution || "Not selected";
+
+    }
+
+
+    if (goalElement) {
+
+        goalElement.textContent =
+            goal || "Not created";
+
+    }
+
+
+    if (scoreElement) {
+
+        scoreElement.textContent =
+            score + "%";
+
+    }
+
+
+    if (peopleElement) {
+
+        peopleElement.textContent =
+            people || "Not assigned";
+
+    }
+
+
+    if (timelineElement) {
+
+        timelineElement.textContent =
+            timeline || "Not created";
+
+    }
+
+
+    /* ================= PROJECT TITLE ================= */
+
+    const projectTitle =
+        document.getElementById(
+            "libraryProjectTitle"
+        );
+
+
+    if (projectTitle) {
+
+        if (problem) {
+
+            projectTitle.textContent =
+                "Project: " + problem;
+
+        } else {
+
+            projectTitle.textContent =
+                "ImpactX Project";
+
+        }
+
+    }
+
+
+    /* ================= DATE ================= */
+
+    const projectDate =
+        document.getElementById(
+            "libraryProjectDate"
+        );
+
+
+    if (projectDate && createdAt) {
+
+        const date =
+            new Date(createdAt);
+
+
+        if (!isNaN(date.getTime())) {
+
+            projectDate.textContent =
+                "Created on " +
+                date.toLocaleDateString(
+                    "en-IN",
+                    {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric"
+                    }
+                );
+
+        }
+
+    }
+
+
+    /* ================= STATUS ================= */
+
+    const statusText =
+        document.getElementById(
+            "libraryStatusText"
+        );
+
+
+    if (statusText) {
+
+        if (
+            problem &&
+            solution &&
+            goal &&
+            people &&
+            timeline
+        ) {
+
+            statusText.textContent =
+                "✓ Your complete ImpactX project plan is saved and ready to revisit.";
+
+        } else {
+
+            statusText.textContent =
+                "Your project has been created, but some planning information is still incomplete.";
+
+        }
+
+    }
+
+}
+
+
+/* START */
+
+loadLibrary();
+
+</script>
+
+
+</body>
+
+</html>
