@@ -47,7 +47,7 @@ Return ONLY JSON.
 `;
 
         const response = await fetch(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent",
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent",
             {
                 method: "POST",
                 headers: {
@@ -65,7 +65,6 @@ Return ONLY JSON.
                         }
                     ],
                     generationConfig: {
-                        temperature: 0.7,
                         responseMimeType: "application/json",
                         responseSchema: {
                             type: "OBJECT",
@@ -114,9 +113,7 @@ Return ONLY JSON.
             console.error("Gemini API error:", data);
 
             return res.status(response.status).json({
-                error:
-                    data?.error?.message ||
-                    "Gemini request failed"
+                error: data?.error?.message || "Gemini request failed"
             });
         }
 
@@ -135,17 +132,13 @@ Return ONLY JSON.
             result = JSON.parse(outputText);
         } catch (error) {
             console.error("JSON parse error:", error);
-            console.error("Gemini output:", outputText);
 
             return res.status(500).json({
                 error: "Gemini returned invalid JSON"
             });
         }
 
-        if (
-            !result.solutions ||
-            !Array.isArray(result.solutions)
-        ) {
+        if (!result.solutions || !Array.isArray(result.solutions)) {
             return res.status(500).json({
                 error: "No solutions were returned"
             });
