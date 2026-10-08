@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-    // Only allow POST requests
     if (req.method !== "POST") {
         return res.status(405).json({
             error: "Method not allowed"
@@ -9,14 +8,12 @@ export default async function handler(req, res) {
     try {
         const { problem } = req.body || {};
 
-        // Check problem
         if (!problem || typeof problem !== "string") {
             return res.status(400).json({
                 error: "Problem is required"
             });
         }
 
-        // Check Gemini API key
         if (!process.env.GEMINI_API_KEY) {
             return res.status(500).json({
                 error: "GEMINI_API_KEY is not configured"
@@ -26,16 +23,12 @@ export default async function handler(req, res) {
         const prompt = `
 You are the ImpactX AI Solution Engine.
 
-ImpactX helps students turn real-world problems into practical solutions.
-
-The selected problem is:
-
+Selected real-world problem:
 ${problem}
 
-Generate exactly 4 DIFFERENT possible solutions.
+Generate exactly 4 different practical solutions.
 
-Each solution must contain:
-
+For every solution provide:
 - name
 - description
 - impact
@@ -43,40 +36,24 @@ Each solution must contain:
 - sustainability
 
 Requirements:
-- Practical
-- Creative
-- Realistic
-- Suitable for students, schools or communities
-- Different from each other
-- Safe and responsible
-- Easy to understand
+- practical
+- creative
+- realistic
+- suitable for students, schools or communities
+- safe
+- clearly different from one another
 
-Return ONLY valid JSON in exactly this format:
-
-{
-  "solutions": [
-    {
-      "name": "Solution name",
-      "description": "Short explanation",
-      "impact": "High",
-      "feasibility": "High",
-      "sustainability": "Medium"
-    }
-  ]
-}
+Return ONLY JSON.
 `;
 
-        // Call Gemini
         const response = await fetch(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent",
             {
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json",
                     "x-goog-api-key": process.env.GEMINI_API_KEY
                 },
-
                 body: JSON.stringify({
                     contents: [
                         {
@@ -87,10 +64,45 @@ Return ONLY valid JSON in exactly this format:
                             ]
                         }
                     ],
-
                     generationConfig: {
                         temperature: 0.7,
-                        responseMimeType: "application/json"
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "OBJECT",
+                            properties: {
+                                solutions: {
+                                    type: "ARRAY",
+                                    items: {
+                                        type: "OBJECT",
+                                        properties: {
+                                            name: {
+                                                type: "STRING"
+                                            },
+                                            description: {
+                                                type: "STRING"
+                                            },
+                                            impact: {
+                                                type: "STRING"
+                                            },
+                                            feasibility: {
+                                                type: "STRING"
+                                            },
+                                            sustainability: {
+                                                type: "STRING"
+                                            }
+                                        },
+                                        required: [
+                                            "name",
+                                            "description",
+                                            "impact",
+                                            "feasibility",
+                                            "sustainability"
+                                        ]
+                                    }
+                                }
+                            },
+                            required: ["solutions"]
+                        }
                     }
                 })
             }
@@ -98,7 +110,6 @@ Return ONLY valid JSON in exactly this format:
 
         const data = await response.json();
 
-        // Handle Gemini errors
         if (!response.ok) {
             console.error("Gemini API error:", data);
 
@@ -109,72 +120,47 @@ Return ONLY valid JSON in exactly this format:
             });
         }
 
-        // Extract Gemini response text
         const outputText =
             data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
         if (!outputText) {
-            console.error("Gemini returned:", data);
-
             return res.status(500).json({
                 error: "Gemini returned no solution text"
             });
         }
 
-        // Parse JSON returned by Gemini
         let result;
 
         try {
             result = JSON.parse(outputText);
-        } catch (parseError) {
-            console.error("JSON parsing error:", parseError);
+        } catch (error) {
+            console.error("JSON parse error:", error);
             console.error("Gemini output:", outputText);
 
             return res.status(500).json({
-                error: "Gemini returned invalid solution JSON"
+                error: "Gemini returned invalid JSON"
             });
         }
 
-        // Validate solutions
         if (
             !result.solutions ||
             !Array.isArray(result.solutions)
         ) {
             return res.status(500).json({
-                error: "Gemini did not return the expected solutions"
+                error: "No solutions were returned"
             });
         }
 
-        // Keep exactly 4 solutions
-        const solutions = result.solutions
-            .slice(0, 4)
-            .map(solution => ({
-                name: String(solution.name || "Untitled Solution"),
-                description: String(
-                    solution.description || "No description provided."
-                ),
-                impact: String(
-                    solution.impact || "Medium"
-                ),
-                feasibility: String(
-                    solution.feasibility || "Medium"
-                ),
-                sustainability: String(
-                    solution.sustainability || "Medium"
-                )
-            }));
-
         return res.status(200).json({
             success: true,
-            solutions
+            solutions: result.solutions.slice(0, 4)
         });
 
     } catch (error) {
         console.error("ImpactX server error:", error);
 
         return res.status(500).json({
-            error:
-                "Something went wrong while generating solutions."
+            error: "Something went wrong while generating solutions."
         });
     }
 }
