@@ -1,871 +1,847 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ImpactX — AI Solution Lab</title>
 
-    <link rel="stylesheet"
-          href="style.css">
+    <link rel="stylesheet" href="style.css">
 
+    <style>
+        /* =========================================
+           IMPACTX SOLUTION LAB — LAYOUT FIX
+           ========================================= */
+
+        .solution-page {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .solution-hero {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 80px 6% 70px;
+        }
+
+        .solution-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .solution-hero-text {
+            min-width: 0;
+        }
+
+        .solution-hero-text h1 {
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.02;
+            margin: 15px 0 22px;
+            word-break: normal;
+        }
+
+        .solution-hero-text p {
+            max-width: 620px;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #42686C;
+        }
+
+        .engine-preview {
+            min-width: 0;
+            background: #FFFFFF;
+            border: 2px solid #9FD1D2;
+            border-radius: 28px;
+            padding: 28px;
+            box-shadow: 0 18px 45px rgba(37, 100, 105, 0.15);
+        }
+
+        .engine-label {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #258C95;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .engine-preview h2 {
+            margin: 0 0 16px;
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        .engine-description {
+            color: #42686C;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .engine-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .engine-step {
+            min-width: 0;
+            padding: 15px 10px;
+            background: #EEF7F7;
+            border: 1px solid #9FD1D2;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .engine-step strong {
+            display: block;
+            font-size: 17px;
+            margin-bottom: 5px;
+            color: #183E42;
+        }
+
+        .engine-step span {
+            font-size: 12px;
+            color: #60777A;
+        }
+
+        /* Problem section */
+
+        .selected-problem-section {
+            padding: 70px 6%;
+        }
+
+        .selected-problem-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-kicker {
+            color: #258C95;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .selected-problem-card {
+            background: #FFFFFF;
+            border: 2px solid #9FD1D2;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 12px 30px rgba(37, 100, 105, 0.10);
+        }
+
+        .selected-problem-card h2 {
+            margin: 0;
+            font-size: clamp(28px, 4vw, 44px);
+            line-height: 1.15;
+            color: #183E42;
+        }
+
+        /* AI area */
+
+        .ai-section {
+            padding: 70px 6% 100px;
+            background: linear-gradient(
+                135deg,
+                #D5F1F0,
+                #DCEFF7,
+                #EEE7F8
+            );
+        }
+
+        .ai-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ai-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .ai-header-text {
+            min-width: 0;
+        }
+
+        .ai-header h2 {
+            margin: 0 0 12px;
+            font-size: clamp(34px, 5vw, 56px);
+            line-height: 1.05;
+        }
+
+        .ai-header p {
+            max-width: 650px;
+            margin: 0;
+            color: #42686C;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .generate-btn {
+            flex: 0 0 auto;
+            border: none;
+            border-radius: 16px;
+            background: #3FA9A3;
+            color: white;
+            padding: 18px 25px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(37, 100, 105, 0.18);
+            transition: 0.2s ease;
+        }
+
+        .generate-btn:hover {
+            background: #258C95;
+            transform: translateY(-2px);
+        }
+
+        .generate-btn:disabled {
+            opacity: 0.65;
+            cursor: wait;
+            transform: none;
+        }
+
+        .ai-status {
+            min-height: 25px;
+            margin: 0 0 25px;
+            color: #42686C;
+            font-weight: 600;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .solution-card {
+            min-width: 0;
+            background: #FFFFFF;
+            border: 2px solid #9FD1D2;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 12px 30px rgba(37, 100, 105, 0.10);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .solution-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: #D8C7ED;
+            color: #6B4FA3;
+            font-weight: 900;
+            margin-bottom: 18px;
+        }
+
+        .solution-card h3 {
+            margin: 0 0 12px;
+            font-size: 25px;
+            line-height: 1.2;
+            color: #183E42;
+            overflow-wrap: anywhere;
+        }
+
+        .solution-card p {
+            color: #42686C;
+            line-height: 1.6;
+            margin: 0 0 22px;
+        }
+
+        .solution-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .metric {
+            background: #F4FAFA;
+            border: 1px solid #B9DDF0;
+            border-radius: 14px;
+            padding: 13px 10px;
+        }
+
+        .metric span {
+            display: block;
+            font-size: 11px;
+            color: #60777A;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric strong {
+            color: #258C95;
+            font-size: 14px;
+        }
+
+        .choose-btn {
+            width: 100%;
+            margin-top: 18px;
+            padding: 13px 16px;
+            border-radius: 13px;
+            border: 2px solid #3FA9A3;
+            background: white;
+            color: #258C95;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .choose-btn:hover {
+            background: #D5F1F0;
+        }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            background: rgba(255,255,255,0.8);
+            border: 2px dashed #9FD1D2;
+            border-radius: 24px;
+            padding: 50px 25px;
+            text-align: center;
+        }
+
+        .empty-state h3 {
+            margin: 0 0 10px;
+            color: #183E42;
+        }
+
+        .empty-state p {
+            margin: 0;
+            color: #60777A;
+        }
+
+        .continue-section {
+            padding: 60px 6% 90px;
+            text-align: center;
+        }
+
+        .continue-section h2 {
+            margin-bottom: 12px;
+        }
+
+        .continue-section p {
+            color: #42686C;
+            margin-bottom: 25px;
+        }
+
+        .continue-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #3FA9A3;
+            color: white;
+            padding: 15px 24px;
+            border-radius: 14px;
+            font-weight: 800;
+        }
+
+        @media (max-width: 900px) {
+            .solution-hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .generate-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .solution-hero,
+            .selected-problem-section,
+            .ai-section,
+            .continue-section {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .engine-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
+<div class="solution-page">
 
-<!-- ================= NAVBAR ================= -->
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">ImpactX</div>
 
-<header class="navbar">
-
-    <div class="logo">
-        Impact<span>X</span>
-    </div>
-
-
-    <nav class="nav-links">
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="problems.html">
-            Problems
-        </a>
-
-        <a href="explorer.html">
-            Explorer
-        </a>
-
-        <a href="solutions.html"
-           class="active">
-            Solution Lab
-        </a>
-
-        <a href="simulator.html">
-            Simulator
-        </a>
-
-        <a href="action.html">
-            Action Lab
-        </a>
-
-        <a href="impact.html">
-            Impact
-        </a>
-
-        <a href="library.html">
-            Library
-        </a>
-
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="problems.html">Problems</a>
+            <a href="explorer.html">Explorer</a>
+            <a href="solutions.html">Solution Lab</a>
+            <a href="simulator.html">Simulator</a>
+            <a href="action.html">Action Lab</a>
+            <a href="impact.html">Impact</a>
+            <a href="library.html">Library</a>
+        </div>
     </nav>
 
 
-    <button class="nav-button"
-            onclick="window.location.href='problems.html'">
+    <!-- HERO -->
+    <section class="solution-hero">
 
-        Choose Another Problem
+        <div class="solution-hero-inner">
 
-    </button>
+            <div class="solution-hero-text">
 
-</header>
+                <div class="badge">
+                    AI SOLUTION ENGINE
+                </div>
 
+                <h1>
+                    Think beyond<br>
+                    the first answer.
+                </h1>
 
-
-<main>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="problem-hero">
-
-    <div class="badge">
-        ✦ IMPACTX AI SOLUTION LAB
-    </div>
-
-
-    <h1>
-        One Problem.
-        <span>Multiple Possibilities.</span>
-    </h1>
-
-
-    <p>
-        ImpactX uses AI to explore different ways of
-        solving a real-world problem instead of stopping
-        at the first idea.
-    </p>
-
-</section>
-
-
-
-<!-- ================= SELECTED PROBLEM ================= -->
-
-<section style="padding:20px 7% 30px;">
-
-    <div class="problem-card"
-         style="
-            max-width:1000px;
-            margin:auto;
-            min-height:auto;
-         ">
-
-
-        <span class="problem-category">
-            SELECTED PROBLEM
-        </span>
-
-
-        <h2 id="selectedProblem"
-            style="
-                margin-top:12px;
-                color:var(--text-heading);
-            ">
-
-            Loading...
-
-        </h2>
-
-
-        <p style="
-            margin-top:10px;
-            color:var(--text-muted);
-        ">
-
-            This is the challenge that the ImpactX AI
-            Solution Engine will work on.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= AI ENGINE ================= -->
-
-<section style="padding:30px 7% 20px;">
-
-    <div class="create-problem"
-         style="
-            max-width:1100px;
-            margin:auto;
-            padding:40px;
-            text-align:center;
-         ">
-
-
-        <span class="section-label">
-            AI SOLUTION ENGINE
-        </span>
-
-
-        <h2 style="margin:12px 0;">
-            Think beyond the first answer.
-        </h2>
-
-
-        <p style="
-            max-width:750px;
-            margin:0 auto;
-            line-height:1.7;
-        ">
-
-            ImpactX analyzes the selected problem and
-            generates multiple practical possibilities
-            that can be compared before taking action.
-
-        </p>
-
-
-
-        <!-- ENGINE STEPS -->
-
-        <div style="
-            display:grid;
-            grid-template-columns:
-                repeat(4,minmax(0,1fr));
-            gap:14px;
-            margin-top:28px;
-        ">
-
-
-            <div style="
-                background:#FFFFFF;
-                border:1px solid #9FD1D2;
-                border-radius:16px;
-                padding:20px;
-            ">
-
-                <strong>01</strong>
-
-                <p style="margin-top:7px;">
-                    Understand
+                <p>
+                    ImpactX analyzes the selected problem and generates
+                    multiple practical possibilities that can be compared
+                    before taking action.
                 </p>
 
             </div>
 
 
+            <div class="engine-preview">
 
-            <div style="
-                background:#FFFFFF;
-                border:1px solid #9FD1D2;
-                border-radius:16px;
-                padding:20px;
-            ">
+                <div class="engine-label">
+                    How ImpactX works
+                </div>
 
-                <strong>02</strong>
+                <h2>
+                    One problem.<br>
+                    Multiple possibilities.
+                </h2>
 
-                <p style="margin-top:7px;">
-                    Generate
+                <p class="engine-description">
+                    The AI Solution Engine creates different approaches
+                    so students can compare ideas instead of accepting
+                    the first solution they think of.
                 </p>
 
-            </div>
+                <div class="engine-steps">
 
+                    <div class="engine-step">
+                        <strong>01</strong>
+                        <span>Understand</span>
+                    </div>
 
+                    <div class="engine-step">
+                        <strong>02</strong>
+                        <span>Generate</span>
+                    </div>
 
-            <div style="
-                background:#FFFFFF;
-                border:1px solid #9FD1D2;
-                border-radius:16px;
-                padding:20px;
-            ">
+                    <div class="engine-step">
+                        <strong>03</strong>
+                        <span>Compare</span>
+                    </div>
 
-                <strong>03</strong>
+                    <div class="engine-step">
+                        <strong>04</strong>
+                        <span>Choose</span>
+                    </div>
 
-                <p style="margin-top:7px;">
-                    Compare
-                </p>
-
-            </div>
-
-
-
-            <div style="
-                background:#FFFFFF;
-                border:1px solid #9FD1D2;
-                border-radius:16px;
-                padding:20px;
-            ">
-
-                <strong>04</strong>
-
-                <p style="margin-top:7px;">
-                    Choose
-                </p>
+                </div>
 
             </div>
 
         </div>
 
+    </section>
 
 
-        <!-- GENERATE BUTTON -->
+    <!-- SELECTED PROBLEM -->
+    <section class="selected-problem-section">
 
-        <button id="generateButton"
-                class="primary-btn"
-                type="button"
-                onclick="generateAISolutions()"
-                style="
-                    margin-top:30px;
-                    padding:16px 30px;
-                    font-size:16px;
-                    font-weight:800;
-                ">
+        <div class="selected-problem-wrap">
 
-            ✨ Generate AI Solutions
+            <div class="section-kicker">
+                Selected problem
+            </div>
 
-        </button>
+            <div class="selected-problem-card">
 
+                <h2 id="selectedProblem">
+                    Loading problem...
+                </h2>
 
-        <p id="aiStatus"
-           style="
-                margin-top:15px;
-                min-height:24px;
-                color:#258C95;
-           ">
-
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= AI SOLUTIONS ================= -->
-
-<section style="padding:30px 7% 100px;">
-
-    <div class="problem-top">
-
-        <div>
-
-            <span class="section-label">
-                AI-GENERATED POSSIBILITIES
-            </span>
-
-
-            <h2>
-                Explore the
-                <span>options.</span>
-            </h2>
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
 
+    <!-- AI SOLUTION LAB -->
+    <section class="ai-section">
 
-    <!-- EMPTY STATE -->
+        <div class="ai-container">
 
-    <div id="solutionEmpty"
-         class="create-problem"
-         style="
-            text-align:center;
-            margin-top:25px;
-         ">
+            <div class="ai-header">
+
+                <div class="ai-header-text">
+
+                    <div class="section-kicker">
+                        Solution Lab
+                    </div>
+
+                    <h2>
+                        Explore the options.
+                    </h2>
+
+                    <p>
+                        Generate four different AI-powered approaches
+                        for the selected problem. Compare their impact,
+                        feasibility and sustainability before choosing
+                        one.
+                    </p>
+
+                </div>
+
+                <button
+                    id="generateButton"
+                    class="generate-btn"
+                    type="button"
+                    onclick="generateAISolutions()"
+                >
+                    ✨ Generate AI Solutions
+                </button>
+
+            </div>
 
 
-        <div style="
-            font-size:45px;
-            margin-bottom:15px;
-        ">
-            🤖
+            <div
+                id="aiStatus"
+                class="ai-status"
+                aria-live="polite"
+            ></div>
+
+
+            <div
+                id="solutionGrid"
+                class="solution-grid"
+            >
+
+                <div
+                    id="solutionEmpty"
+                    class="empty-state"
+                >
+
+                    <h3>
+                        Ready to generate possibilities?
+                    </h3>
+
+                    <p>
+                        Click “Generate AI Solutions” to ask the
+                        ImpactX Solution Engine for ideas.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
+    </section>
+
+
+    <!-- CONTINUE -->
+    <section class="continue-section">
 
         <h2>
-            Your possibilities are waiting.
+            From possibilities to decisions.
         </h2>
-
 
         <p>
-            Click “Generate AI Solutions” above to ask
-            ImpactX for four different approaches to
-            your selected problem.
+            Choose a solution and test it in the ImpactX Simulator.
         </p>
 
-    </div>
+        <a
+            href="simulator.html"
+            class="continue-btn"
+        >
+            Open Simulator →
+        </a>
+
+    </section>
 
 
+    <footer>
+        <p>© 2026 ImpactX — From Problems to Possibilities.</p>
+    </footer>
 
-    <!-- AI SOLUTION GRID -->
-
-    <div id="solutionGrid"
-         class="problem-grid"
-         style="margin-top:25px;">
-
-    </div>
-
-
-
-    <!-- ================= DECISION SUPPORT ================= -->
-
-    <div class="create-problem"
-         style="
-            margin-top:55px;
-            text-align:center;
-         ">
-
-
-        <span class="section-label">
-            DECISION SUPPORT
-        </span>
-
-
-        <h2>
-            Don't choose blindly.
-        </h2>
-
-
-        <p style="
-            max-width:700px;
-            margin:0 auto;
-        ">
-
-            Compare each possibility using impact,
-            feasibility and sustainability before
-            choosing what to try.
-
-        </p>
-
-
-
-        <div style="
-            display:grid;
-            grid-template-columns:
-                repeat(3,minmax(0,1fr));
-            gap:16px;
-            max-width:850px;
-            margin:25px auto;
-        ">
-
-
-            <div style="
-                background:#FFFFFF;
-                padding:20px;
-                border-radius:16px;
-                border:1px solid #9FD1D2;
-            ">
-
-                <strong>
-                    Impact
-                </strong>
-
-                <p style="margin-top:6px;">
-                    How much could it help?
-                </p>
-
-            </div>
-
-
-
-            <div style="
-                background:#FFFFFF;
-                padding:20px;
-                border-radius:16px;
-                border:1px solid #9FD1D2;
-            ">
-
-                <strong>
-                    Feasibility
-                </strong>
-
-                <p style="margin-top:6px;">
-                    Can it realistically be done?
-                </p>
-
-            </div>
-
-
-
-            <div style="
-                background:#FFFFFF;
-                padding:20px;
-                border-radius:16px;
-                border:1px solid #9FD1D2;
-            ">
-
-                <strong>
-                    Sustainability
-                </strong>
-
-                <p style="margin-top:6px;">
-                    Can it continue over time?
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <p style="
-            font-size:13px;
-            color:#648084;
-            margin-top:15px;
-        ">
-
-            AI-generated ideas are suggestions for
-            exploration, not guaranteed outcomes.
-
-        </p>
-
-    </div>
-
-
-</section>
-
-</main>
-
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <div class="logo">
-        Impact<span>X</span>
-    </div>
-
-
-    <p>
-        From Problems to Possibilities.
-    </p>
-
-</footer>
-
-
-
-<script src="script.js"></script>
-
+</div>
 
 
 <script>
 
-/* =========================================
-   IMPACTX AI SOLUTION LAB
-   ========================================= */
+    // =========================================
+    // LOAD SELECTED PROBLEM
+    // =========================================
 
+    function loadSelectedProblem() {
 
-/* ================= LOAD PROBLEM ================= */
+        const problem =
+            localStorage.getItem("selectedProblem");
 
-function loadSelectedProblem() {
+        const element =
+            document.getElementById("selectedProblem");
 
-    const problem =
-        localStorage.getItem("selectedProblem");
+        if (!element) return;
 
-
-    const element =
-        document.getElementById("selectedProblem");
-
-
-    if (!element) {
-        return;
+        if (problem) {
+            element.textContent = problem;
+        } else {
+            element.textContent =
+                "No problem selected";
+        }
     }
 
 
-    if (problem) {
+    // =========================================
+    // GENERATE AI SOLUTIONS
+    // =========================================
 
-        element.textContent =
-            problem;
+    async function generateAISolutions() {
 
-    } else {
+        const problem =
+            localStorage.getItem("selectedProblem");
 
-        element.textContent =
-            "No problem selected";
+        const button =
+            document.getElementById("generateButton");
 
-    }
+        const status =
+            document.getElementById("aiStatus");
 
-}
+        const grid =
+            document.getElementById("solutionGrid");
 
+        if (!problem) {
 
-/* ================= GENERATE AI ================= */
+            status.textContent =
+                "⚠️ Please select a problem first.";
 
-async function generateAISolutions() {
-
-    const problem =
-        localStorage.getItem("selectedProblem");
-
-
-    const button =
-        document.getElementById(
-            "generateButton"
-        );
+            return;
+        }
 
 
-    const status =
-        document.getElementById(
-            "aiStatus"
-        );
+        button.disabled = true;
 
-
-    const empty =
-        document.getElementById(
-            "solutionEmpty"
-        );
-
-
-    const grid =
-        document.getElementById(
-            "solutionGrid"
-        );
-
-
-    /* NO PROBLEM */
-
-    if (!problem) {
+        button.textContent =
+            "⏳ Generating...";
 
         status.textContent =
-            "⚠️ Please select a problem first.";
-
-        return;
-
-    }
+            "ImpactX AI is thinking of different possibilities...";
 
 
-    /* LOADING */
-
-    button.disabled = true;
-
-    button.textContent =
-        "🤖 Thinking...";
-
-
-    status.textContent =
-        "ImpactX AI is generating possibilities...";
-
-
-    empty.style.display =
-        "none";
+        grid.innerHTML = `
+            <div class="empty-state">
+                <h3>Generating possibilities...</h3>
+                <p>
+                    The AI Solution Engine is creating and comparing
+                    different approaches.
+                </p>
+            </div>
+        `;
 
 
-    grid.innerHTML = "";
+        try {
 
-
-    try {
-
-        const response =
-            await fetch(
-                "/api/chat",
-                {
+            const response =
+                await fetch("/api/chat", {
 
                     method: "POST",
 
                     headers: {
-                        "Content-Type":
-                            "application/json"
+                        "Content-Type": "application/json"
                     },
 
                     body: JSON.stringify({
                         problem: problem
                     })
 
-                }
+                });
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    data.error ||
+                    "AI request failed."
+                );
+
+            }
+
+
+            if (
+                !data.solutions ||
+                !Array.isArray(data.solutions) ||
+                data.solutions.length === 0
+            ) {
+
+                throw new Error(
+                    "The AI did not return any solutions."
+                );
+
+            }
+
+
+            localStorage.setItem(
+                "aiSolutions",
+                JSON.stringify(data.solutions)
             );
 
 
-        const data =
-            await response.json();
-
-
-        /* API ERROR */
-
-        if (!response.ok) {
-
-            throw new Error(
-                data.error ||
-                "Unable to generate solutions."
+            displayAISolutions(
+                data.solutions
             );
+
+
+            status.textContent =
+                "✓ Four possibilities generated successfully.";
+
+
+        } catch (error) {
+
+            console.error(
+                "ImpactX AI error:",
+                error
+            );
+
+
+            grid.innerHTML = `
+                <div class="empty-state">
+
+                    <h3>
+                        AI solutions couldn't be generated.
+                    </h3>
+
+                    <p>
+                        ${escapeHTML(error.message)}
+                    </p>
+
+                </div>
+            `;
+
+
+            status.textContent =
+                "⚠️ The AI service is temporarily unavailable. Please try again.";
 
         }
 
-
-        /* CHECK DATA */
-
-        if (
-            !data.solutions ||
-            !Array.isArray(data.solutions) ||
-            data.solutions.length === 0
-        ) {
-
-            throw new Error(
-                "The AI did not return any solutions."
-            );
-
-        }
-
-
-        /* DISPLAY */
-
-        displayAISolutions(
-            data.solutions
-        );
-
-
-        status.textContent =
-            "✓ ImpactX AI generated " +
-            data.solutions.length +
-            " possibilities.";
-
-
-    }
-
-
-    catch (error) {
-
-        console.error(error);
-
-
-        status.textContent =
-            "⚠️ " + error.message;
-
-
-        empty.style.display =
-            "block";
-
-
-        empty.innerHTML = `
-
-            <div style="
-                font-size:42px;
-                margin-bottom:15px;
-            ">
-                ⚠️
-            </div>
-
-            <h2>
-                AI could not generate solutions.
-            </h2>
-
-            <p>
-                ${escapeHTML(error.message)}
-            </p>
-
-            <p style="
-                margin-top:10px;
-                font-size:13px;
-            ">
-                Make sure your API setup is complete
-                before trying again.
-            </p>
-
-        `;
-
-    }
-
-
-    finally {
 
         button.disabled = false;
 
         button.textContent =
             "✨ Generate AI Solutions";
-
     }
 
-}
+
+    // =========================================
+    // DISPLAY AI SOLUTIONS
+    // =========================================
+
+    function displayAISolutions(solutions) {
+
+        const grid =
+            document.getElementById("solutionGrid");
 
 
-/* ================= DISPLAY SOLUTIONS ================= */
-
-function displayAISolutions(
-    solutions
-) {
-
-    const grid =
-        document.getElementById(
-            "solutionGrid"
-        );
+        grid.innerHTML = "";
 
 
-    grid.innerHTML = "";
-
-
-    solutions
-        .slice(0, 4)
-        .forEach(
-            function(solution, index) {
-
+        solutions
+            .slice(0, 4)
+            .forEach((solution, index) => {
 
                 const card =
-                    document.createElement(
-                        "article"
-                    );
-
+                    document.createElement("article");
 
                 card.className =
-                    "problem-card";
-
-
-                const name =
-                    solution.name ||
-                    "AI Solution";
-
-
-                const description =
-                    solution.description ||
-                    "No description provided.";
-
-
-                const impact =
-                    solution.impact ||
-                    "Not rated";
-
-
-                const feasibility =
-                    solution.feasibility ||
-                    "Not rated";
-
-
-                const sustainability =
-                    solution.sustainability ||
-                    "Not rated";
+                    "solution-card";
 
 
                 card.innerHTML = `
 
-                    <div class="problem-icon">
-                        ${getSolutionIcon(index)}
+                    <div class="solution-number">
+                        ${String(index + 1).padStart(2, "0")}
                     </div>
-
-
-                    <span class="problem-category">
-                        AI SOLUTION ${String(index + 1).padStart(2, "0")}
-                    </span>
-
 
                     <h3>
-                        ${escapeHTML(name)}
+                        ${escapeHTML(solution.name)}
                     </h3>
 
-
                     <p>
-                        ${escapeHTML(description)}
+                        ${escapeHTML(solution.description)}
                     </p>
 
+                    <div class="solution-metrics">
 
-                    <div style="
-                        margin-top:20px;
-                    ">
+                        <div class="metric">
+                            <span>Impact</span>
+                            <strong>
+                                ${escapeHTML(solution.impact)}
+                            </strong>
+                        </div>
 
-                        <strong>
-                            Potential Impact
-                        </strong>
+                        <div class="metric">
+                            <span>Feasibility</span>
+                            <strong>
+                                ${escapeHTML(solution.feasibility)}
+                            </strong>
+                        </div>
 
-                        <p>
-                            ${escapeHTML(impact)}
-                        </p>
-
-                    </div>
-
-
-                    <div style="
-                        margin-top:12px;
-                    ">
-
-                        <strong>
-                            Feasibility
-                        </strong>
-
-                        <p>
-                            ${escapeHTML(feasibility)}
-                        </p>
+                        <div class="metric">
+                            <span>Sustainability</span>
+                            <strong>
+                                ${escapeHTML(solution.sustainability)}
+                            </strong>
+                        </div>
 
                     </div>
-
-
-                    <div style="
-                        margin-top:12px;
-                    ">
-
-                        <strong>
-                            Sustainability
-                        </strong>
-
-                        <p>
-                            ${escapeHTML(sustainability)}
-                        </p>
-
-                    </div>
-
 
                     <button
-                        class="problem-button"
+                        class="choose-btn"
                         type="button"
-                        style="margin-top:20px;"
                         onclick="chooseAISolution(${index})"
                     >
-
-                        Choose This Solution →
-
+                        Choose This Possibility →
                     </button>
 
                 `;
@@ -873,124 +849,150 @@ function displayAISolutions(
 
                 grid.appendChild(card);
 
-            }
-        );
+            });
 
-
-    /* SAVE FOR LATER */
-
-    localStorage.setItem(
-        "aiSolutions",
-        JSON.stringify(solutions)
-    );
-
-}
-
-
-/* ================= CHOOSE SOLUTION ================= */
-
-function chooseAISolution(index) {
-
-    const saved =
-        localStorage.getItem(
-            "aiSolutions"
-        );
-
-
-    if (!saved) {
-        return;
     }
 
 
-    try {
+    // =========================================
+    // CHOOSE SOLUTION
+    // =========================================
 
-        const solutions =
-            JSON.parse(saved);
+    function chooseAISolution(index) {
+
+        const saved =
+            localStorage.getItem("aiSolutions");
 
 
-        const solution =
-            solutions[index];
+        if (!saved) {
 
+            alert(
+                "Please generate the AI solutions first."
+            );
 
-        if (!solution) {
             return;
         }
 
 
-        /* SAVE SELECTED SOLUTION */
-
-        localStorage.setItem(
-            "selectedSolution",
-            solution.name || "AI Solution"
-        );
+        let solutions;
 
 
-        /* SAVE COMPLETE AI SOLUTION */
+        try {
+
+            solutions =
+                JSON.parse(saved);
+
+        } catch (error) {
+
+            alert(
+                "The saved AI solutions could not be read."
+            );
+
+            return;
+        }
+
+
+        const selected =
+            solutions[index];
+
+
+        if (!selected) {
+
+            alert(
+                "That solution could not be found."
+            );
+
+            return;
+        }
+
 
         localStorage.setItem(
             "selectedAISolution",
-            JSON.stringify(solution)
+            JSON.stringify(selected)
         );
 
 
-        /* GO TO SIMULATOR */
+        localStorage.setItem(
+            "selectedSolution",
+            selected.name
+        );
+
 
         window.location.href =
             "simulator.html";
+    }
+
+
+    // =========================================
+    // SAFE TEXT
+    // =========================================
+
+    function escapeHTML(value) {
+
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+
+    // =========================================
+    // LOAD SAVED AI SOLUTIONS
+    // =========================================
+
+    function loadSavedSolutions() {
+
+        const saved =
+            localStorage.getItem("aiSolutions");
+
+
+        if (!saved) return;
+
+
+        try {
+
+            const solutions =
+                JSON.parse(saved);
+
+
+            if (
+                Array.isArray(solutions) &&
+                solutions.length > 0
+            ) {
+
+                displayAISolutions(
+                    solutions
+                );
+
+                document.getElementById(
+                    "aiStatus"
+                ).textContent =
+                    "✓ Your previous AI possibilities are loaded.";
+
+            }
+
+        } catch (error) {
+
+            localStorage.removeItem(
+                "aiSolutions"
+            );
+
+        }
 
     }
 
 
-    catch (error) {
+    // =========================================
+    // START
+    // =========================================
 
-        console.error(error);
+    loadSelectedProblem();
 
-    }
-
-}
-
-
-/* ================= ICONS ================= */
-
-function getSolutionIcon(index) {
-
-    const icons = [
-        "💡",
-        "⚙️",
-        "🌱",
-        "🚀"
-    ];
-
-
-    return icons[
-        index % icons.length
-    ];
-
-}
-
-
-/* ================= SECURITY ================= */
-
-function escapeHTML(value) {
-
-    return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-
-}
-
-
-/* ================= START ================= */
-
-loadSelectedProblem();
+    loadSavedSolutions();
 
 </script>
 
-
-
 </body>
-
 </html>
