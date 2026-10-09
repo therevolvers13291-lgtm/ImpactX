@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback | ImpactX</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .feedback-page {
+      max-width: 820px;
+      margin: 45px auto;
+      padding: 24px;
+    }
+
+    .feedback-heading {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .feedback-heading .eyebrow {
+      color: #159e98;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+
+    .feedback-heading h1 {
+      font-size: clamp(30px, 5vw, 46px);
+      margin: 12px 0;
+    }
+
+    .feedback-heading p {
+      line-height: 1.7;
+      color: #64748b;
+    }
+
+    .feedback-card {
+      background: #fff;
+      border: 1px solid #d8e5e8;
+      border-radius: 22px;
+      padding: clamp(20px, 5vw, 36px);
+      box-shadow: 0 12px 35px rgba(18, 59, 70, 0.08);
+    }
+
+    .feedback-field {
+      margin-bottom: 25px;
+    }
+
+    .feedback-field > label,
+    .feedback-field legend {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #123b46;
+    }
+
+    .feedback-field select,
+    .feedback-field textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 13px 14px;
+      font: inherit;
+      background: #fff;
+      color: #123b46;
+    }
+
+    .feedback-field textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    .feedback-field select:focus,
+    .feedback-field textarea:focus {
+      outline: 2px solid #43c6b7;
+      outline-offset: 2px;
+    }
+
+    .feedback-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .feedback-options label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #d8e5e8;
+      border-radius: 12px;
+      padding: 11px 13px;
+      cursor: pointer;
+    }
+
+    .feedback-options label:has(input:checked) {
+      background: #e7f8f5;
+      border-color: #43c6b7;
+    }
+
+    .feedback-options input {
+      accent-color: #159e98;
+    }
+
+    .feedback-submit {
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      padding: 15px;
+      background: #123b46;
+      color: white;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .feedback-submit:hover {
+      background: #195766;
+    }
+
+    .feedback-submit:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
+    .feedback-status {
+      margin-top: 16px;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .feedback-note {
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 18px;
+    }
+
+    /* Hidden anti-spam field */
+    .feedback-trap {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">Impact<span>X</span></div>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="problems.html">Problems</a>
+    <a href="explorer.html">Explorer</a>
+    <a href="solutions.html">Solution Lab</a>
+    <a href="simulator.html">Simulator</a>
+    <a href="action.html">Action Lab</a>
+    <a href="impact.html">Impact</a>
+    <a href="library.html">Library</a>
+    <a href="feedback.html" class="active" aria-current="page">Feedback</a>
+  </nav>
+</header>
+
+<main class="feedback-page">
+  <section class="feedback-heading">
+    <div class="eyebrow">YOUR VOICE MATTERS</div>
+    <h1>Share Your <span>ImpactX Experience</span></h1>
+    <p>
+      Your feedback helps us improve ImpactX and make
+      problem-solving more useful for everyone.
+    </p>
+  </section>
+
+  <form id="feedbackForm" class="feedback-card">
+    <div class="feedback-field">
+      <fieldset style="border:0;padding:0;margin:0">
+        <legend>1. How would you rate ImpactX overall?</legend>
+        <div class="feedback-options">
+          <label><input type="radio" name="rating" value="5" required> ⭐ 5</label>
+          <label><input type="radio" name="rating" value="4"> ⭐ 4</label>
+          <label><input type="radio" name="rating" value="3"> ⭐ 3</label>
+          <label><input type="radio" name="rating" value="2"> ⭐ 2</label>
+          <label><input type="radio" name="rating" value="1"> ⭐ 1</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="feedback-field">
+      <label for="ease">2. Was the website easy to use?</label>
+      <select id="ease" name="ease" required>
+        <option value="">Choose an answer</option>
+        <option>Very easy</option>
+        <option>Easy</option>
+        <option>Somewhat difficult</option>
+        <option>Difficult</option>
+      </select>
+    </div>
+
+    <div class="feedback-field">
+      <label for="feature">3. Which feature did you find most useful?</label>
+      <select id="feature" name="feature" required>
+        <option value="">Choose a feature</option>
+        <option>Problem Hub</option>
+        <option>Problem Explorer</option>
+        <option>AI Solution Lab</option>
+        <option>What-If Simulator</option>
+        <option>Action Lab</option>
+        <option>Impact Dashboard</option>
+        <option>Impact Library</option>
+      </select>
+    </div>
+
+    <div class="feedback-field">
+      <fieldset style="border:0;padding:0;margin:0">
+        <legend>4. Would you recommend ImpactX to others?</legend>
+        <div class="feedback-options">
+          <label><input type="radio" name="recommend" value="Yes" required> Yes</label>
+          <label><input type="radio" name="recommend" value="Maybe"> Maybe</label>
+          <label><input type="radio" name="recommend" value="No"> No</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="feedback-field">
+      <label for="suggestions">5. What should we improve?</label>
+      <textarea
+        id="suggestions"
+        name="suggestions"
+        maxlength="1500"
+        placeholder="Tell us what worked well or what we could improve..."
+      ></textarea>
+    </div>
+
+    <div class="feedback-trap" aria-hidden="true">
+      <label for="website">Leave this field empty</label>
+      <input id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <button class="feedback-submit" id="submitFeedback" type="submit">
+      Submit Feedback →
+    </button>
+
+    <p id="feedbackStatus" class="feedback-status" role="status" aria-live="polite"></p>
+
+    <p class="feedback-note">
+      No name or email is required. Please don't include private or sensitive information.
+    </p>
+  </form>
+</main>
+
+<script>
+  const feedbackForm = document.getElementById("feedbackForm");
+  const feedbackStatus = document.getElementById("feedbackStatus");
+  const submitButton = document.getElementById("submitFeedback");
+
+  feedbackForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(feedbackForm);
+
+    const feedback = {
+      rating: Number(formData.get("rating")),
+      ease_of_use: formData.get("ease"),
+      favourite_feature: formData.get("feature"),
+      recommend: formData.get("recommend"),
+      suggestions: formData.get("suggestions").trim(),
+      website: formData.get("website")
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+    feedbackStatus.textContent = "";
+
+    try {
+      const response = await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(feedback)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to submit feedback.");
+      }
+
+      feedbackStatus.textContent =
+        "Thank you! Your feedback has been submitted successfully.";
+      feedbackStatus.style.color = "#087f5b";
+      feedbackForm.reset();
+    } catch (error) {
+      feedbackStatus.textContent =
+        "We couldn't submit your feedback. Please try again in a moment.";
+      feedbackStatus.style.color = "#b42318";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit Feedback →";
+    }
+  });
+</script>
+
+</body>
+</html>
